@@ -1,0 +1,115 @@
+.boton-reutilizable {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* Variantes */
+.boton-primario {
+  background: var(--color-dorado);
+  color: var(--color-oscuro);
+  border: 2px solid var(--color-dorado);
+}
+
+.boton-primario:hover:not(.boton-disabled) {
+  background: var(--color-bronce);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-dorada);
+}
+
+.boton-secundario {
+  background: transparent;
+  color: var(--color-crema);
+  border: 2px solid var(--color-dorado);
+}
+
+.boton-secundario:hover:not(.boton-disabled) {
+  background: var(--color-dorado);
+  color: var(--color-oscuro);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-dorada);
+}
+
+.boton-peligro {
+  background: var(--color-rojo);
+  color: var(--color-crema);
+  border: 2px solid var(--color-rojo);
+}
+
+.boton-peligro:hover:not(.boton-disabled) {
+  background: #8b0000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(107, 0, 0, 0.3);
+}
+
+.boton-exito {
+  background: var(--color-exito);
+  color: white;
+  border: 2px solid var(--color-exito);
+}
+
+.boton-exito:hover:not(.boton-disabled) {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.boton-outline {
+  background: transparent;
+  color: var(--color-crema);
+  border: 2px solid var(--color-metal);
+}
+
+.boton-outline:hover:not(.boton-disabled) {
+  background: var(--color-metal);
+  color: var(--color-crema);
+  transform: translateY(-2px);
+}
+
+/* Tamaños */
+.boton-pequeno {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  min-width: 80px;
+}
+
+.boton-mediano {
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  min-width: 120px;
+}
+
+.boton-grande {
+  padding: 16px 32px;
+  font-size: 1rem;
+  min-width: 160px;
+}
+
+/* Estados */
+.boton-disabled {
+  opacity: var(--opacidad-disabled);
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.boton-full-width {
+  width: 100%;
+}
+
+/* Focus para accesibilidad */
+.boton-reutilizable:focus-visible {
+  outline: 3px solid var(--color-dorado);
+  outline-offset: 2px;
+}

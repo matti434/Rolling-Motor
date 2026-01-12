@@ -113,14 +113,12 @@ const Contacto = () => {
         <>
             <Toaster position="top-right" />
 
-            {/* FONDO NEGRO COMPLETO */}
             <div style={{
                 backgroundColor: "#000000",
                 minHeight: "100vh",
                 width: "100%",
                 position: "relative"
             }}>
-                {/* Contenido principal */}
                 <div className="container d-flex justify-content-center align-items-center min-vh-100" style={{ 
                     backgroundSize: "cover", 
                     backgroundPosition: "center", 
@@ -135,8 +133,6 @@ const Contacto = () => {
                         borderRadius: "15px",
                         boxShadow: "0 0 20px rgba(255, 255, 0, 0.2)"
                     }}>
-                        
-                        {/* Columna izquierda - Título */}
                         <div className="col-12 col-md-6 text-white d-flex flex-column justify-content-center p-5" style={{ 
                             background: "rgba(0, 0, 0, 0.6)", 
                             backdropFilter: "blur(6px)", 
@@ -148,16 +144,12 @@ const Contacto = () => {
                                 Contáctanos para consultas sobre motos, repuestos y servicios.
                             </p>
                         </div>
-
-                        {/* Columna derecha - Formulario */}
                         <form ref={form} onSubmit={sendEmail} className="col-12 col-md-6 d-flex flex-column justify-content-center p-5" style={{ 
                             background: "rgba(0, 0, 0, 0.6)", 
                             backdropFilter: "blur(6px)", 
                             color: "white"
                         }}>
                             <h5 className="titulo-glow2 pb-3 mb-4" style={{ borderBottom: "1px solid rgba(255, 255, 0, 0.3)" }}>Datos de Contacto</h5>
-
-                            {/* Nombre */}
                             <input 
                                 id="nombre" 
                                 type="text" 
@@ -172,8 +164,6 @@ const Contacto = () => {
                                 }}
                             />
                             {renderError(errores.nombre)}
-
-                            {/* Apellido */}
                             <input 
                                 id="apellido" 
                                 type="text" 
@@ -188,8 +178,6 @@ const Contacto = () => {
                                 }}
                             />
                             {renderError(errores.apellido)}
-
-                            {/* Teléfono */}
                             <input 
                                 type="tel" 
                                 placeholder="Teléfono" 
@@ -204,8 +192,6 @@ const Contacto = () => {
                                 }}
                             />
                             {renderError(errores.telefono)}
-
-                            {/* Email */}
                             <input 
                                 id="email" 
                                 type="email" 
@@ -220,8 +206,6 @@ const Contacto = () => {
                                 }}
                             />
                             {renderError(errores.email)}
-
-                            {/* Mensaje */}
                             <Form.Control 
                                 id="mensaje" 
                                 as="textarea" 
@@ -237,8 +221,6 @@ const Contacto = () => {
                                 }}
                             />
                             {renderError(errores.mensaje)}
-
-                            {/* Botón Enviar */}
                             <button 
                                 className="btn w-100 py-2 mt-2 boton-animado"
                                 type="submit" 
@@ -278,8 +260,6 @@ const Contacto = () => {
                                     {errorGeneral}
                                 </div>
                             )}
-
-                            {/* Modal de éxito */}
                             {mensajeEnviado && (
                                 <div style={{ 
                                     position:"fixed", 
@@ -357,8 +337,6 @@ const Contacto = () => {
                         </form>
                     </div>
                 </div>
-
-                {/* Mapa */}
                 <div className="container d-flex justify-content-center mt-4" style={{ paddingBottom: "30px" }}>
                     <div className="map-container-custom">
                         <div className="map-dark-overlay"></div>
@@ -371,8 +349,6 @@ const Contacto = () => {
                         ></iframe>
                     </div>
                 </div>
-
-                {/* Horarios y contacto */}
                 <div className="container mt-4 d-flex justify-content-center" style={{ paddingBottom: "50px" }}>
                     <div style={{ 
                         width: "75%", 

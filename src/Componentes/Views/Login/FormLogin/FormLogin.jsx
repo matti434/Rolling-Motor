@@ -43,7 +43,6 @@ export const FormLogin = ({ onSubmit, onClose, onAbrirRegistro }) => {
       return;
     }
 
-    // Pasamos solo credencial y contraseña al onSubmit
     try {
       await onSubmit?.({
         credencial: data.credencial,

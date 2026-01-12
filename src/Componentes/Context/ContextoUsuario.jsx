@@ -12,7 +12,6 @@ export const UserProvider = ({ children }) => {
   const [usuarioActual, setUsuarioActual] = useState(null);
   const [cargando, setCargando] = useState(true);
 
-  /** ---------- CARGA DE DATOS ---------- */
   const cargarDatos = useCallback(() => {
     try {
       setCargando(true);
@@ -43,9 +42,7 @@ export const UserProvider = ({ children }) => {
     cargarDatos();
   }, [cargarDatos]);
 
-  /** ---------- LOGIN ---------- */
   const login = useCallback((credenciales) => {
-    // Usamos directamente el servicio que ya valida correctamente
     const resultado = servicios.loginUsuario(credenciales.credencial, credenciales.contrasena);
 
     if (resultado.exito) {
@@ -65,14 +62,12 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
-  /** ---------- LOGOUT ---------- */
   const logout = useCallback(() => {
     setUsuarioActual(null);
     localStorage.removeItem("ultimoUsuario");
     toast.success("Sesión cerrada");
   }, []);
 
-  /** ---------- REGISTRO ---------- */
   const registrarUsuario = useCallback((datos) => {
     const nuevoUsuario = {
       id: crypto.randomUUID(),
@@ -97,7 +92,6 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
-  /** ---------- SUSPENDER / REACTIVAR / ELIMINAR ---------- */
   const suspenderUsuario = useCallback((id) => {
     const usuario = usuarios.find(u => u.id === id);
     if (!usuario) return toast.error("Usuario no encontrado");
@@ -160,7 +154,6 @@ export const UserProvider = ({ children }) => {
     }
   }, [usuarioActual]);
 
-  /** ---------- UTILES ---------- */
   const obtenerUsuarioPorId = useCallback((id) => servicios.obtenerUsuarioPorId(id), []);
   const buscarUsuarios = useCallback((termino) => servicios.buscarUsuarios(termino), [usuarios]);
   const actualizarUsuarioActual = useCallback((nuevosDatos) => {

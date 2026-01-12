@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap');
 
-:root {
-  --color-crema: #f8f4e9;
-  --color-dorado: #d4af37;
-  --color-oscuro: #1a1a1a;
-  --color-rojo: #8b0000;
-  --color-metal: #8a8a8a;
-}
 .card-moto {
   border: 1px solid var(--color-metal);
   border-radius: 8px;

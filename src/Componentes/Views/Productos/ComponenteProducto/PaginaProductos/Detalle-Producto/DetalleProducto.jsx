@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useCarrito } from '../../../../../Context/ContextoCarrito'; 
+import { useCarrito } from '../../../../../Context/ContextoCarrito';
+import '../../../../../../estilos/variables.css';
 import './DetalleProducto.css';
 
 const DetalleProducto = () => {

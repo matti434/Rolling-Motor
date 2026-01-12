@@ -131,6 +131,18 @@ export const registrarUsuario = (datosUsuario) => {
   return agregarUsuario(datosUsuario);
 };
 
+export const buscarUsuarios = (termino) => {
+  const usuarios = obtenerUsuarios();
+  if (!termino || termino.trim() === '') return usuarios;
+  
+  const busqueda = termino.toLowerCase();
+  return usuarios.filter(u => 
+    u.nombreDeUsuario?.toLowerCase().includes(busqueda) ||
+    u.email?.toLowerCase().includes(busqueda) ||
+    u.pais?.toLowerCase().includes(busqueda)
+  );
+};
+
 
 export const obtenerProductos = () => {
   const productos = localStorage.getItem("productos");

@@ -1,11 +1,3 @@
-:root {
-  --color-crema: #f8f4e9;
-  --color-dorado: #d4af37;
-  --color-oscuro: #1a1a1a;
-  --color-rojo: #8b0000;
-  --color-metal: #8a8a8a;
-}
-
 .carrito-container {
   background-color: var(--color-crema);
   min-height: 100vh;

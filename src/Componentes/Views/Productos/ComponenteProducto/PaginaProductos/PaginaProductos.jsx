@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useProductos } from '../../../../Context/ContextoProducto';
 import BuscadorProducto from './componenteBuscarProducto/BuscadorProducto';
 import ListaProductos from './Lista-Productos/ListaProductos';
+import '../../../../../estilos/variables.css';
 import './PaginaProductos.css';
 
 const PaginaProductos = () => {

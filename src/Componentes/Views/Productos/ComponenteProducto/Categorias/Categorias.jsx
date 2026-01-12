@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import './Categorias.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Col, Row, Card } from 'react-bootstrap';
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const imgCard = new URL('/Productos/imgCard.jpg', import.meta.url).href;

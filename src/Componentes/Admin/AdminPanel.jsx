@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useUser } from "../Context/ContextoUsuario";
 import { useProductos } from "../Context/ContextoProducto";
 import MapaUsuarios from "./MapaUsuarios";
+import "../../estilos/variables.css"; // Importar variables CSS
 import "./AdminPanel.css";
 
 const AdminPanel = () => {

@@ -11,6 +11,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useCarrito } from "../../../Context/ContextoCarrito";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../../../../estilos/variables.css";
 import "./Carrito.css";
 
 const Carrito = () => {

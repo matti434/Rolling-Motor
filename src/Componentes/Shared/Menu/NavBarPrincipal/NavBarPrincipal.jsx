@@ -12,6 +12,7 @@ import {
 import { useUser } from "../../../Context/ContextoUsuario";
 import MenuUsuario from "./menuUsuario/MenuUsuario";
 import { useTranslation } from "react-i18next";
+import "../../../../estilos/variables.css";
 import "./NavBarPrincipal.css";
 
 export const NavBarPrincipal = ({ onAbrirRegistro, onAbrirLogin }) => {

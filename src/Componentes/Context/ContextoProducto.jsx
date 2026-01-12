@@ -34,7 +34,6 @@ export const ProveedorProductos = ({ children }) => {
     stock: "",
   });
 
-  // Carga los productos desde LocalStorage usando los servicios
   const cargarProductos = useCallback(() => {
     try {
       setCargando(true);
@@ -209,8 +208,6 @@ export const ProveedorProductos = ({ children }) => {
     },
     [productos]
   );
-
-  /** ---------------- CRUD PRODUCTOS CON LOCALSTORAGE ---------------- */
 
   const agregarProducto = useCallback((producto) => {
     const respuesta = servicios.agregarProducto(producto);
