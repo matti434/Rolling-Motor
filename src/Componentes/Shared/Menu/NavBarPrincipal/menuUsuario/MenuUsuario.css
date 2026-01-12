@@ -1,0 +1,60 @@
+.menu-usuario-container .boton-usuario {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  color: white !important;
+  transition: all 0.3s ease !important;
+}
+
+.menu-usuario-container .boton-usuario:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.menu-usuario-container .boton-usuario:after {
+  margin-left: 8px;
+}
+
+.icono-usuario {
+  font-size: 14px;
+}
+
+.nombre-usuario {
+  font-weight: 500;
+}
+
+.menu-desplegable-usuario {
+  background: #2c3e50 !important;
+  border: 1px solid #34495e !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  min-width: 200px;
+}
+
+.item-menu-usuario {
+  color: #ecf0f1 !important;
+  padding: 10px 16px !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.item-menu-usuario:hover {
+  background: #34495e !important;
+  color: #3498db !important;
+}
+
+.divisor-menu {
+  border-color: #34495e !important;
+  margin: 5px 0 !important;
+}
+
+.item-salir {
+  color: #e74c3c !important;
+}
+
+.item-salir:hover {
+  background: #c0392b !important;
+  color: white !important;
+}

@@ -1,0 +1,273 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nombreDeUsuario": "admin_user",
+      "email": "admin@ejemplo.com",
+      "pais": "Argentina",
+      "fechaNacimiento": "1985-06-15",
+      "contrasena": "Admin123!",
+      "role": "admin"
+    },
+    {
+      "id": "4",
+      "nombreDeUsuario": "carlos_lopez",
+      "email": "carlos.lopez@mail.com",
+      "pais": "Colombia",
+      "fechaNacimiento": "1988-07-30",
+      "contrasena": "CarlosL789$",
+      "role": "usuario"
+    },
+    {
+      "id": "5",
+      "nombreDeUsuario": "ana_martinez",
+      "email": "ana.martinez@hotmail.com",
+      "pais": "Chile",
+      "fechaNacimiento": "1992-12-14",
+      "contrasena": "AnaM321%",
+      "role": "usuario"
+    },
+    {
+      "id": "6",
+      "nombreDeUsuario": "pedro_rodriguez",
+      "email": "pedro.rodriguez@gmail.com",
+      "pais": "Perú",
+      "fechaNacimiento": "1987-04-18",
+      "contrasena": "PedroR654&",
+      "role": "usuario"
+    },
+    {
+      "id": "7",
+      "nombreDeUsuario": "lucia_sanchez",
+      "email": "lucia.sanchez@outlook.com",
+      "pais": "Uruguay",
+      "fechaNacimiento": "1993-09-25",
+      "contrasena": "LuciaS987*",
+      "role": "usuario"
+    },
+    {
+      "id": "8",
+      "nombreDeUsuario": "diego_fernandez",
+      "email": "diego.fernandez@yahoo.com",
+      "pais": "Venezuela",
+      "fechaNacimiento": "1991-02-11",
+      "contrasena": "DiegoF147+",
+      "role": "usuario"
+    },
+    {
+      "id": "9",
+      "nombreDeUsuario": "sofia_gonzalez",
+      "email": "sofia.gonzalez@proton.com",
+      "pais": "Estados Unidos",
+      "fechaNacimiento": "1994-08-07",
+      "contrasena": "SofiaG258!",
+      "role": "usuario"
+    },
+    {
+      "id": "10",
+      "nombreDeUsuario": "miguel_hernandez",
+      "email": "miguel.hernandez@icloud.com",
+      "pais": "Costa Rica",
+      "fechaNacimiento": "1989-05-19",
+      "contrasena": "MiguelH369@",
+      "role": "usuario"
+    },
+    {
+      "id": "11",
+      "nombreDeUsuario": "elena_morales",
+      "email": "elena.morales@live.com",
+      "pais": "Panamá",
+      "fechaNacimiento": "1996-01-28",
+      "contrasena": "ElenaM741#",
+      "role": "usuario"
+    },
+    {
+      "id": "12",
+      "nombreDeUsuario": "raul_castro",
+      "email": "raul.castro@domain.com",
+      "pais": "Cuba",
+      "fechaNacimiento": "1986-10-03",
+      "contrasena": "RaulC852$",
+      "role": "usuario"
+    },
+    {
+      "id": "13",
+      "nombreDeUsuario": "isabel_ruiz",
+      "email": "isabel.ruiz@server.com",
+      "pais": "Ecuador",
+      "fechaNacimiento": "1997-07-12",
+      "contrasena": "IsabelR963%",
+      "role": "usuario"
+    },
+    {
+      "id": "14",
+      "nombreDeUsuario": "oscar_diaz",
+      "email": "oscar.diaz@network.com",
+      "pais": "Guatemala",
+      "fechaNacimiento": "1990-11-05",
+      "contrasena": "OscarD159&",
+      "role": "usuario"
+    },
+    {
+      "id": "15",
+      "nombreDeUsuario": "patricia_vega",
+      "email": "patricia.vega@web.com",
+      "pais": "República Dominicana",
+      "fechaNacimiento": "1984-03-17",
+      "contrasena": "PatriciaV357*",
+      "role": "usuario"
+    },
+    {
+      "id": "09d90f49-a67f-4f8a-9744-b39db125a661",
+      "nombreDeUsuario": "matiasLaz",
+      "email": "matiasnicolaslazarte@gmail.com",
+      "pais": "Argentina",
+      "fechaNacimiento": "2001-01-20",
+      "contrasena": "MatLaz1@",
+      "role": "usuario"
+    },
+    {
+      "id": "61eec9ec-8ec5-4b9c-b71d-65d24de0554b",
+      "nombreDeUsuario": "TomasGomez18",
+      "email": "TomasGomez@gmail.com",
+      "pais": "Bolivia",
+      "fechaNacimiento": "2002-06-30",
+      "contrasena": "TomasGomez18@",
+      "role": "usuario"
+    },
+    {
+      "id": "3f0cf84e-21a0-4bd2-988a-1a1b14791dd4",
+      "nombreDeUsuario": "Juan18",
+      "email": "juan18@gmail.com",
+      "pais": "Argentina",
+      "fechaNacimiento": "1988-02-05",
+      "contrasena": "JuanVergara@1",
+      "role": "usuario"
+    },
+    {
+      "id": "55c08db8-4fbd-4796-98b0-a6582061aabc",
+      "nombreDeUsuario": "TomasChico15",
+      "email": "tomasChico@gmail.com",
+      "pais": "Bolivia",
+      "fechaNacimiento": "1956-01-20",
+      "contrasena": "Tomas1@Lopes",
+      "role": "usuario"
+    },
+    {
+      "id": "9f1cffad-a6ef-4c50-ba27-d6aa93275c04",
+      "nombreDeUsuario": "Josep25",
+      "email": "josep3422121@gmail.com",
+      "pais": "Brasil",
+      "fechaNacimiento": "2006-11-30",
+      "contrasena": "Josep1@s",
+      "role": "usuario"
+    },
+    {
+      "id": "100",
+      "nombreDeUsuario": "usuario_suspendido",
+      "email": "suspendido@ejemplo.com",
+      "pais": "Argentina",
+      "fechaNacimiento": "1990-01-01",
+      "contrasena": "Temp123!",
+      "role": "usuario",
+      "fechaSuspension": "2024-01-20T15:45:00Z"
+    },
+    {
+      "id": "2",
+      "nombreDeUsuario": "juan_perez2",
+      "email": "juan.perez@email.com",
+      "pais": "México",
+      "fechaNacimiento": "1990-03-22",
+      "contrasena": "",
+      "role": "usuario",
+      "fechaSuspension": "2025-12-03T04:52:04.048Z"
+    },
+    {
+      "id": "835b8faa-2d86-4baa-8d5a-1b670150b8f0",
+      "nombreDeUsuario": "MatiasLazarte",
+      "email": "asmatias94@gmail.com",
+      "pais": "Argentina",
+      "fechaNacimiento": "1996-06-13",
+      "contrasena": "Lazarte1@",
+      "role": "usuario"
+    },
+    {
+      "id": "3",
+      "nombreDeUsuario": "maria_garcia",
+      "email": "maria.garcia@correo.com",
+      "pais": "España",
+      "fechaNacimiento": "1995-11-08",
+      "contrasena": "MariaG456#",
+      "role": "usuario",
+      "fechaSuspension": "2025-12-03T18:29:24.776Z"
+    }
+  ],
+  "usuariosSuspendidos": [],
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Yamaha MT-07 2023",
+      "precio": "8499.96",
+      "descripcion": "Motocicleta naked con motor de 689cc, ideal para ciudad y carretera.",
+      "categoria": "Motocicletas",
+      "marca": "Yamaha",
+      "modelo": "MT-07",
+      "año": "2023",
+      "kilometros": "0 km",
+      "ubicacion": "Buenos Aires",
+      "imagen": "https://ejemplo.com/yamaha-mt07.jpg",
+      "destacado": true,
+      "stock": true,
+      "fechaCreacion": "2024-01-15T10:30:00Z",
+      "fechaModificacion": "2025-12-02T20:28:09.369Z"
+    },
+    {
+      "id": "2",
+      "nombre": "Honda CBR 600RR",
+      "precio": "12000",
+      "descripcion": "Deportiva de alto rendimiento, perfecta para pista.",
+      "categoria": "Motocicletas",
+      "marca": "Honda",
+      "modelo": "CBR 600RR",
+      "año": "2022",
+      "kilometros": "5000 km",
+      "ubicacion": "Córdoba",
+      "imagen": "https://ejemplo.com/honda-cbr600rr.jpg",
+      "destacado": true,
+      "stock": true,
+      "fechaCreacion": "2024-01-16T14:20:00Z"
+    },
+    {
+      "id": "3",
+      "nombre": "Casco Integral AGV K6",
+      "precio": "450",
+      "descripcion": "Casco de fibra de carbono, certificación ECE 22.06.",
+      "categoria": "Accesorios",
+      "marca": "AGV",
+      "modelo": "K6",
+      "año": "2024",
+      "kilometros": "",
+      "ubicacion": "Envío a todo el país",
+      "imagen": "https://ejemplo.com/casco-agv.jpg",
+      "destacado": false,
+      "stock": true,
+      "fechaCreacion": "2024-01-17T09:15:00Z"
+    },
+    {
+      "id": "bda4ad59-74da-44f1-a2db-20b50b7ed075",
+      "nombre": "YAmaha 125",
+      "precio": "50000",
+      "descripcion": "tu hermana",
+      "categoria": "motos",
+      "marca": "yamaha",
+      "modelo": "125",
+      "año": "2025",
+      "kilometros": "0",
+      "ubicacion": "ampimpa",
+      "imagen": "https://images.pexels.com/photos/34993232/pexels-photo-34993232.jpeg",
+      "destacado": false,
+      "stock": true,
+      "fechaCreacion": "2025-12-01T05:37:56.857Z"
+    }
+  ]
+}

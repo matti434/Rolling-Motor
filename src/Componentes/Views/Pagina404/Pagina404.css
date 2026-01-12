@@ -1,0 +1,205 @@
+.error-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0a, #1e1e1e);
+  animation: bgMove 6s ease infinite alternate;
+}
+@keyframes bgMove {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}
+.parallax {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+.error-container:hover .parallax {
+  transform: translateY(-10px);
+}
+.error-title {
+  font-size: 8rem;
+  font-weight: 800;
+  color: #d4af37;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.error-subtitle {
+  font-size: 1.5rem;
+  color: #ccc;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.error-text {
+  max-width: 450px;
+  margin-top: 20px;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+.error-btn {
+  margin-top: 40px;
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+.error-btn:hover {
+  background: #d4af37;
+  color: #000;
+  transform: scale(1.05);
+}
+.error-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0a, #1e1e1e);
+  background-size: 400% 400%;
+  animation: bgMove 6s ease infinite alternate;
+  padding: 2rem;
+  font-family: "Montserrat", "Arial", sans-serif;
+}
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.parallax {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  margin-bottom: 2rem;
+}
+.error-title {
+  font-size: clamp(6rem, 15vw, 8rem);
+  font-weight: 800;
+  color: #d4af37;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5),
+    0 0 40px rgba(212, 175, 55, 0.3);
+  animation: float 3s ease-in-out infinite;
+  margin: 0;
+  line-height: 1;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.error-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: #ccc;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 1rem 0 0 0;
+  font-weight: 300;
+}
+.error-text {
+  max-width: 450px;
+  margin-top: 20px;
+  color: #aaa;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+.error-btn {
+  margin-top: 40px;
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  cursor: pointer;
+  font-family: inherit;
+}
+.error-btn:hover {
+  background: #d4af37;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+@media (max-width: 768px) {
+  .error-container {
+    padding: 1rem;
+  }
+  .error-title {
+    font-size: 5rem;
+  }
+  .error-subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  .error-text {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+  .error-btn {
+    padding: 10px 20px;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .error-title {
+    font-size: 4rem;
+  }
+  .error-subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+  .error-text {
+    font-size: 0.9rem;
+    max-width: 300px;
+  }
+  .error-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+@media (hover: none) {
+  .error-container:hover .parallax {
+    transform: none;
+  }
+  .parallax {
+    transition: none;
+  }
+}

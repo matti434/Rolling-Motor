@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Menu from "./Componentes/Shared/Menu/Menu";
+import Home from "./Componentes/Views/Home/Home";
+import Pagina404 from "./Componentes/Views/Pagina404/Pagina404";
+import Ofertas from "./Componentes/Views/Productos/Ofertas/Ofertas";
+import PaginaProductos from "./Componentes/Views/Productos/ComponenteProducto/PaginaProductos/PaginaProductos";
+import Contacto from "./Componentes/Views/Contacto/Contacto";
+import AdminPanel from "./Componentes/Admin/AdminPanel";
+import RutaProtegida from "./Componentes/Utils/RutaProtegida";
+import Productos from "./Componentes/Views/Productos/Productos";
+import DetalleProducto from "./Componentes/Views/Productos/ComponenteProducto/PaginaProductos/Detalle-Producto/DetalleProducto";
+import Carrito from "./Componentes/Views/Productos/componenteCarrito/Carrito";
+import Footer from "./Componentes/Shared/Footer/Footer";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+
+import { UserProvider } from "./Componentes/Context/ContextoUsuario";
+import { ProveedorProductos } from "./Componentes/Context/ContextoProducto";
+import { CarritoProvider } from "./Componentes/Context/ContextoCarrito";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <CarritoProvider>
+      <ProveedorProductos>
+        <UserProvider>
+          <BrowserRouter>
+            <Menu />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/contacto" element={<Contacto />} />
+              <Route path="/ofertas" element={<Ofertas />} />
+              <Route path="/productos" element={<PaginaProductos />} />
+              <Route path="/productos-todos" element={<Productos />} />
+              <Route path="/detalle-producto" element={<DetalleProducto />} />
+              <Route path="/carrito" element={<Carrito />} />
+              <Route path="*" element={<Pagina404 />} />
+              <Route
+                path="/admin"
+                element={
+                  <RutaProtegida>
+                    <AdminPanel />
+                  </RutaProtegida>
+                }
+              />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </UserProvider>
+      </ProveedorProductos>
+    </CarritoProvider>
+  );
 }
 
-export default App
+export default App;

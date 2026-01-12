@@ -1,0 +1,72 @@
+.nosotros-contenedor {
+  padding: 40px 20px;
+  background: #f7f7f7;
+  min-height: 100vh;
+}
+
+.titulo-nosotros {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #222;
+}
+
+.grid-integrantes {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 0 20px;
+}
+
+.tarjeta-integrante {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-integrante:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.foto-integrante {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #ddd;
+}
+
+.rol-integrante {
+  font-weight: bold;
+  color: #555;
+  margin: 5px 0;
+}
+
+.descripcion-integrante {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.link-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #24292e;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.link-github:hover {
+  background: #000;
+}
