@@ -159,6 +159,7 @@ const ModalPerfil = ({ mostrar, onCerrar }) => {
                     value={formData.nombreDeUsuario}
                     onChange={(e) => setFormData({ ...formData, nombreDeUsuario: e.target.value })}
                     disabled={cargando}
+                    className="text-white"
                   />
                 ) : (
                   <div className="info-value">{usuarioActual.nombreDeUsuario}</div>

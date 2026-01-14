@@ -8,7 +8,7 @@ import PaginaProductos from "./Componentes/Views/Productos/ComponenteProducto/Pa
 import Contacto from "./Componentes/Views/Contacto/Contacto";
 import AdminPanel from "./Componentes/Admin/AdminPanel";
 import RutaProtegida from "./Componentes/Utils/RutaProtegida";
-import Productos from "./Componentes/Views/Productos/Productos";
+import Categorias from "./Componentes/Views/Productos/ComponenteProducto/Categorias/Categorias";
 import DetalleProducto from "./Componentes/Views/Productos/ComponenteProducto/PaginaProductos/Detalle-Producto/DetalleProducto";
 import Carrito from "./Componentes/Views/Productos/componenteCarrito/Carrito";
 import Footer from "./Componentes/Shared/Footer/Footer";
@@ -33,7 +33,7 @@ function App() {
               <Route path="/contacto" element={<Contacto />} />
               <Route path="/ofertas" element={<Ofertas />} />
               <Route path="/productos" element={<PaginaProductos />} />
-              <Route path="/productos-todos" element={<Productos />} />
+              <Route path="/productos-todos" element={<div className="mt-5 py-5"><Categorias /></div>} />
               <Route path="/detalle-producto" element={<DetalleProducto />} />
               <Route path="/carrito" element={<Carrito />} />
               <Route path="*" element={<Pagina404 />} />

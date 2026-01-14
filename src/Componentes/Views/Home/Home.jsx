@@ -1,4 +1,4 @@
-import Producto from '../Productos/Productos';
+import Categorias from '../Productos/ComponenteProducto/Categorias/Categorias';
 import Galeria from './galeria/Galeria';
 import Portada from './inicio/portada';
 const Home = () => {
@@ -6,7 +6,9 @@ const Home = () => {
     <div>
       <Portada/>
       <Galeria/>
-      <Producto/>
+      <div className="mt-5 py-5">
+        <Categorias/>
+      </div>
     </div>
   )
 }
