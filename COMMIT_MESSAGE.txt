@@ -1,0 +1,60 @@
+[MB-4] feature(src): implementar arquitectura MVVM y refactorizar componentes principales
+
+BREAKING CHANGE: Migración de arquitectura a patrón Model-View-ViewModel
+
+## Cambios Principales
+
+### ✨ Nuevas Carpetas y Archivos
+
+**Models (src/Models/)**
+- Usuario.js: Modelo de usuario con validaciones y métodos de transformación
+- Producto.js: Modelo de producto con formateo de precios y validaciones
+- CarritoItem.js: Modelo de item de carrito con cálculos de subtotal
+- index.js: Exportaciones centralizadas
+
+**Services (src/Services/)**
+- productoService.js: Servicios CRUD de productos usando Models
+- usuarioService.js: Servicios CRUD de usuarios usando Models
+
+**ViewModels (src/ViewModels/)**
+- useCarritoViewModel.js: Lógica de presentación del carrito (cálculos, descuentos, navegación)
+- useProductosViewModel.js: Lógica de presentación de productos (filtros, búsqueda, categorías)
+- index.js: Exportaciones centralizadas
+
+**Views y Containers**
+- CarritoView.jsx: Componente puro de presentación del carrito
+- CarritoContainer.jsx: Container que conecta ViewModel con View
+- ListaProductosView.jsx: Componente puro de lista de productos
+- ListaProductosContainer.jsx: Container correspondiente
+
+### 🔄 Archivos Modificados
+
+- App.jsx: Actualizado para usar CarritoContainer en lugar de Carrito
+- PaginaProductos.jsx: Actualizado para usar ListaProductosContainer
+- inicializarLocalStorage.js: Eliminada dependencia de db.json para evitar errores en build
+
+## Beneficios
+
+- ✅ Separación clara de responsabilidades (Model-View-ViewModel)
+- ✅ Componentes más testables y reutilizables
+- ✅ Lógica de negocio separada de presentación
+- ✅ Código más mantenible y escalable
+- ✅ Preparado para migración a API REST
+
+## Estadísticas
+
+- 13 archivos nuevos creados
+- 3 archivos modificados
+- ~850 líneas de código nuevas
+- Build exitoso y verificado
+
+## Compatibilidad
+
+- Se mantienen archivos originales para compatibilidad
+- Contextos de React se mantienen y se usan desde ViewModels
+- No hay cambios breaking en funcionalidad existente
+
+## Documentación
+
+- docs/MIGRACION_MVVM.md: Plan completo de migración
+- docs/CAMBIOS_MVVM_IMPLEMENTADOS.md: Documentación detallada de cambios

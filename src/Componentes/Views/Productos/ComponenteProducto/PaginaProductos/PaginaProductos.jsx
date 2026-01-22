@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useProductos } from '../../../../Context/ContextoProducto';
 import BuscadorProducto from './componenteBuscarProducto/BuscadorProducto';
-import ListaProductos from './Lista-Productos/ListaProductos';
+import ListaProductosContainer from './Lista-Productos/ListaProductosContainer';
 import '../../../../../estilos/variables.css';
 import './PaginaProductos.css';
 
@@ -56,7 +56,7 @@ const PaginaProductos = () => {
               Colección de motocicletas Royal Enfield disponibles
             </p>
           </div>
-          <ListaProductos />
+          <ListaProductosContainer />
         </div>
       </div>
 

@@ -10,7 +10,7 @@ import AdminPanel from "./Componentes/Admin/AdminPanel";
 import RutaProtegida from "./Componentes/Utils/RutaProtegida";
 import Categorias from "./Componentes/Views/Productos/ComponenteProducto/Categorias/Categorias";
 import DetalleProducto from "./Componentes/Views/Productos/ComponenteProducto/PaginaProductos/Detalle-Producto/DetalleProducto";
-import Carrito from "./Componentes/Views/Productos/componenteCarrito/Carrito";
+import CarritoContainer from "./Componentes/Views/Productos/componenteCarrito/CarritoContainer";
 import Footer from "./Componentes/Shared/Footer/Footer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -35,7 +35,7 @@ function App() {
               <Route path="/productos" element={<PaginaProductos />} />
               <Route path="/productos-todos" element={<div className="mt-5 py-5"><Categorias /></div>} />
               <Route path="/detalle-producto" element={<DetalleProducto />} />
-              <Route path="/carrito" element={<Carrito />} />
+                  <Route path="/carrito" element={<CarritoContainer />} />
               <Route path="*" element={<Pagina404 />} />
               <Route
                 path="/admin"

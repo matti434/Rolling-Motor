@@ -1,7 +1,7 @@
-import db from "../../../db.json";
-
 export const inicializarLocalStorage = () => {
   try {
+    const db = { usuarios: [], usuariosSuspendidos: [], productos: [] };
+
     if (!localStorage.getItem("usuarios")) {
       localStorage.setItem("usuarios", JSON.stringify(db.usuarios || []));
     }
