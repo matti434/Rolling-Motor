@@ -6,7 +6,7 @@ import Pagina404 from "./Componentes/Views/Pagina404/Pagina404";
 import Ofertas from "./Componentes/Views/Productos/Ofertas/Ofertas";
 import PaginaProductos from "./Componentes/Views/Productos/ComponenteProducto/PaginaProductos/PaginaProductos";
 import Contacto from "./Componentes/Views/Contacto/Contacto";
-import AdminPanel from "./Componentes/Admin/AdminPanel";
+import AdminPanelContainer from "./Componentes/Admin/AdminPanelContainer";
 import RutaProtegida from "./Componentes/Utils/RutaProtegida";
 import Categorias from "./Componentes/Views/Productos/ComponenteProducto/Categorias/Categorias";
 import DetalleProducto from "./Componentes/Views/Productos/ComponenteProducto/PaginaProductos/Detalle-Producto/DetalleProducto";
@@ -41,7 +41,7 @@ function App() {
                 path="/admin"
                 element={
                   <RutaProtegida>
-                    <AdminPanel />
+                    <AdminPanelContainer />
                   </RutaProtegida>
                 }
               />
