@@ -1,5 +1,5 @@
 import { Modal } from "react-bootstrap";
-import { FormLogin } from "./FormLogin/FormLogin";
+import FormLogin from "./FormLogin/FormLogin";
 import { useLoginViewModel } from "./useLoginViewModel";
 import "./Login.css";
 

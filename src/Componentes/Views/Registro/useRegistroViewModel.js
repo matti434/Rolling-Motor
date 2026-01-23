@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { toast } from 'react-hot-toast';
-import { useUser } from '../../../Context/ContextoUsuario';
-import { usuarioService } from '../../../../Services/usuarioService';
+import { useUser } from '../../Context/ContextoUsuario';
+import { usuarioService } from '../../../Services/usuarioService';
 
 export const useRegistroViewModel = ({ onClose }) => {
   const { setUsuarioActual } = useUser();

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { registroSchema } from '../../../../Utils/ValidacionesForm';
+import { registroSchema } from '../../../Utils/ValidacionesForm';
 
 export const useFormRegistroViewModel = ({ onSubmit, onClose }) => {
   const [mostrarContrasena, setMostrarContrasena] = useState(false);
