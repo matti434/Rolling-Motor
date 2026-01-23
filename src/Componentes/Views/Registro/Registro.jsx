@@ -2,7 +2,7 @@ import { Modal } from "react-bootstrap";
 import { toast } from "react-hot-toast";
 import FormRegistro from "./FormRegistro/FormRegistro";
 import { useUser } from "../../Context/ContextoUsuario";
-import { registrarUsuario } from "../../../Servicios/serviciosGenerales"; // <- tu servicio
+import { usuarioService } from "../../../Services/usuarioService";
 import "./Registro.css";
 
 export const Registro = ({ onClose, onAbrirLogin }) => {
@@ -10,12 +10,13 @@ export const Registro = ({ onClose, onAbrirLogin }) => {
 
   const onSubmit = async (data) => {
     try {
-      const resultado = registrarUsuario(data); // Llamada al servicio
+      const resultado = usuarioService.registrar(data); // Usa Service (convierte a Model)
 
       if (resultado.exito) {
         toast.success("¡Registro exitoso! Bienvenido a Rolling Motors");
         
-        setUsuarioActual(resultado.usuario); // Actualizar estado global
+        // resultado.usuario es una instancia de Usuario (Model)
+        setUsuarioActual(resultado.usuario.toJSON ? resultado.usuario.toJSON() : resultado.usuario); // Actualizar estado global
         onClose(); // Cerrar modal
       } else {
         toast.error(resultado.mensaje || "No se pudo registrar el usuario");

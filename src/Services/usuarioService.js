@@ -13,7 +13,23 @@ export const usuarioService = {
   },
 
   crear: (datos) => {
-    const resultado = servicios.agregarUsuario(datos);
+    // Validaciones en Service (no en persistencia)
+    const usuarios = usuarioService.obtenerTodos();
+    
+    if (usuarios.some(u => u.email.toLowerCase() === datos.email?.toLowerCase())) {
+      return { exito: false, mensaje: "El email ya está registrado" };
+    }
+    if (usuarios.some(u => u.nombreDeUsuario.toLowerCase() === datos.nombreDeUsuario?.toLowerCase())) {
+      return { exito: false, mensaje: "El nombre de usuario ya existe" };
+    }
+
+    // Transformaciones en Service
+    const nuevoUsuario = {
+      ...datos,
+      id: crypto.randomUUID(),
+    };
+
+    const resultado = servicios.agregarUsuario(nuevoUsuario);
     if (resultado.exito) {
       return { exito: true, usuario: Usuario.fromJSON(resultado.usuario) };
     }
@@ -41,7 +57,8 @@ export const usuarioService = {
   },
 
   registrar: (datos) => {
-    return servicios.registrarUsuario(datos);
+    // Usar crear() que ya tiene validaciones y convierte a Model
+    return usuarioService.crear(datos);
   },
 
   buscar: (termino) => {

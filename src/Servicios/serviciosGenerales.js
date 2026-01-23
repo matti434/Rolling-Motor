@@ -12,22 +12,16 @@ export const obtenerUsuarioPorId = (id) => {
   return obtenerUsuarios().find((u) => u.id === id);
 };
 
+// Persistencia pura - sin validaciones ni transformaciones
+// Las validaciones y transformaciones están en usuarioService.js
 export const agregarUsuario = (usuario) => {
   const usuarios = obtenerUsuarios();
-
-  if (usuarios.some(u => u.email.toLowerCase() === usuario.email.toLowerCase())) {
-    return { exito: false, mensaje: "El email ya está registrado" };
-  }
-  if (usuarios.some(u => u.nombreDeUsuario.toLowerCase() === usuario.nombreDeUsuario.toLowerCase())) {
-    return { exito: false, mensaje: "El nombre de usuario ya existe" };
-  }
-
-  const nuevoUsuario = { ...usuario, id: crypto.randomUUID() };
-  usuarios.push(nuevoUsuario);
+  usuarios.push(usuario);
   guardarUsuarios(usuarios);
-  return { exito: true, usuario: nuevoUsuario };
+  return { exito: true, usuario };
 };
 
+// Persistencia pura - sin validaciones
 export const editarUsuario = (id, datosActualizados) => {
   const usuarios = obtenerUsuarios();
   const index = usuarios.findIndex((u) => u.id === id);
@@ -105,6 +99,7 @@ export const eliminarUsuarioSuspendido = (id) => {
 };
 
 
+// Persistencia pura - la lógica de login está en usuarioService.js
 export const loginUsuario = (credencial, contrasena) => {
   const usuarios = obtenerUsuarios();
 
@@ -125,11 +120,7 @@ export const loginUsuario = (credencial, contrasena) => {
   return { exito: true, usuario };
 };
 
-/** --------------------------------- REGISTRO --------------------------------- */
-
-export const registrarUsuario = (datosUsuario) => {
-  return agregarUsuario(datosUsuario);
-};
+// Función eliminada - usar agregarUsuario directamente desde usuarioService
 
 export const buscarUsuarios = (termino) => {
   const usuarios = obtenerUsuarios();
@@ -157,21 +148,16 @@ export const obtenerProductoPorId = (id) => {
   return obtenerProductos().find((p) => p.id === id);
 };
 
+// Persistencia pura - sin transformaciones
+// Las transformaciones están en productoService.js
 export const agregarProducto = (producto) => {
   const productos = obtenerProductos();
-  const nuevoProducto = {
-    ...producto,
-    id: crypto.randomUUID(),
-    fechaCreacion: new Date().toISOString(),
-    stock: producto.stock !== undefined ? producto.stock : true,
-    destacado: producto.destacado !== undefined ? producto.destacado : false,
-    precio: producto.precio.toString(),
-  };
-  productos.push(nuevoProducto);
+  productos.push(producto);
   guardarProductos(productos);
-  return { exito: true, producto: nuevoProducto };
+  return { exito: true, producto };
 };
 
+// Persistencia pura - sin transformaciones
 export const editarProducto = (id, datosActualizados) => {
   const productos = obtenerProductos();
   const index = productos.findIndex((p) => p.id === id);
@@ -180,8 +166,6 @@ export const editarProducto = (id, datosActualizados) => {
   productos[index] = {
     ...productos[index],
     ...datosActualizados,
-    fechaModificacion: new Date().toISOString(),
-    precio: datosActualizados.precio?.toString() || productos[index].precio,
   };
   guardarProductos(productos);
   return { exito: true, producto: productos[index] };
@@ -211,8 +195,4 @@ export const obtenerProductosRecientes = (limite = 5) => {
     .slice(0, limite);
 };
 
-export const actualizarStockProducto = (id, tieneStock) => {
-  const producto = obtenerProductoPorId(id);
-  if (!producto) return { exito: false, mensaje: "Producto no encontrado" };
-  return editarProducto(id, { ...producto, stock: tieneStock });
-};
+// Función eliminada - usar editarProducto directamente desde productoService

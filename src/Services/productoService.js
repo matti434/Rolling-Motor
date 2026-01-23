@@ -13,7 +13,17 @@ export const productoService = {
   },
 
   crear: (datos) => {
-    const resultado = servicios.agregarProducto(datos);
+    // Transformaciones y validaciones en Service (no en persistencia)
+    const nuevoProducto = {
+      ...datos,
+      id: crypto.randomUUID(),
+      fechaCreacion: new Date().toISOString(),
+      stock: datos.stock !== undefined ? datos.stock : true,
+      destacado: datos.destacado !== undefined ? datos.destacado : false,
+      precio: datos.precio?.toString() || "0",
+    };
+
+    const resultado = servicios.agregarProducto(nuevoProducto);
     if (resultado.exito) {
       return { exito: true, producto: Producto.fromJSON(resultado.producto) };
     }
@@ -21,7 +31,14 @@ export const productoService = {
   },
 
   actualizar: (id, datos) => {
-    const resultado = servicios.editarProducto(id, datos);
+    // Transformaciones en Service
+    const datosActualizados = {
+      ...datos,
+      fechaModificacion: new Date().toISOString(),
+      precio: datos.precio?.toString() || datos.precio,
+    };
+
+    const resultado = servicios.editarProducto(id, datosActualizados);
     if (resultado.exito) {
       return { exito: true, producto: Producto.fromJSON(resultado.producto) };
     }
@@ -48,10 +65,13 @@ export const productoService = {
   },
 
   actualizarStock: (id, tieneStock) => {
-    const resultado = servicios.actualizarStockProducto(id, tieneStock);
-    if (resultado.exito) {
-      return { exito: true, producto: Producto.fromJSON(resultado.producto) };
+    // Usar editarProducto directamente (actualizarStockProducto fue eliminado)
+    const producto = productoService.obtenerPorId(id);
+    if (!producto) {
+      return { exito: false, mensaje: "Producto no encontrado" };
     }
-    return resultado;
+    
+    const datosActualizados = { ...producto.toJSON(), stock: tieneStock };
+    return productoService.actualizar(id, datosActualizados);
   }
 };

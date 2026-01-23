@@ -6,6 +6,7 @@ import React, {
   useCallback,
 } from "react";
 import * as servicios from "../../Servicios/serviciosGenerales";
+import { productoService } from "../../Services/productoService";
 
 const ContextoProducto = createContext();
 
@@ -252,10 +253,12 @@ export const ProveedorProductos = ({ children }) => {
   }, []);
 
   const actualizarStockProducto = useCallback((id, tieneStock) => {
-    const respuesta = servicios.actualizarStockProducto(id, tieneStock);
+    // Usa productoService que tiene la lógica
+    const respuesta = productoService.actualizarStock(id, tieneStock);
     if (respuesta.exito) {
+      const productoJSON = respuesta.producto.toJSON ? respuesta.producto.toJSON() : respuesta.producto;
       setProductos((prev) =>
-        prev.map((p) => (p.id === id ? respuesta.producto : p))
+        prev.map((p) => (p.id === id ? productoJSON : p))
       );
     }
     return respuesta;
