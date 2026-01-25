@@ -1,11 +1,10 @@
-
 .card-moto {
-  background: var(--color-oscuro);
-  border: 1px solid var(--color-metal);
+  background: #ffffff;
+  border: 2px solid #d0d0d0;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  color: var(--color-crema);
+  color: #2c2c2c;
 }
 
 .card-moto.destacada {
@@ -94,11 +93,12 @@
 }
 
 .contenedor-precio {
-  background: #2a2a2a;
+  background: #f0f0f0;
   padding: 1rem;
   border-radius: 4px;
   margin-bottom: 1rem;
   text-align: center;
+  border: 1px solid #d0d0d0;
 }
 
 .texto-precio-desde {
@@ -124,7 +124,8 @@
   gap: 0.5rem;
 }
 
-.boton-contactar, .boton-carrito {
+.boton-contactar,
+.boton-carrito {
   flex: 1;
   padding: 0.75rem;
   border: none;

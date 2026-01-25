@@ -4,10 +4,10 @@ import Portada from './inicio/portada';
 const Home = () => {
   return (
     <div>
-      <Portada/>
       <Galeria/>
+        <Categorias/> 
+      <Portada/>
       <div className="mt-5 py-5">
-        <Categorias/>
       </div>
     </div>
   )

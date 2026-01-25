@@ -17,7 +17,7 @@ const Login = ({ onClose, onAbrirRegistro }) => {
       dialogClassName="modal-login-personalizado"
     >
       <Modal.Header closeButton className="encabezado-modal-personalizado">
-        <Modal.Title>Bienvenido de vuelta a Rolling Motors</Modal.Title>
+       <Modal.Title>Tu camino continúa en Rolling Motors</Modal.Title>
       </Modal.Header>
 
       <Modal.Body className="cuerpo-modal-personalizado p-0">

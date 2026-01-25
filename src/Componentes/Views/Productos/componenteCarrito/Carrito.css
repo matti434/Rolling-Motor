@@ -10,7 +10,8 @@
 }
 
 .bg-oscuro {
-  background-color: var(--color-oscuro) !important;
+  background-color: #f0f0f0 !important;
+  color: #2c2c2c !important;
 }
 
 .text-crema {
@@ -127,23 +128,24 @@
 }
 
 .total-item {
-  border-top: 2px solid var(--color-dorado) !important;
-  background-color: rgba(212, 175, 55, 0.05);
+  border-top: 2px solid #c89b2b !important;
+  background-color: rgba(200, 155, 43, 0.08);
 }
 
 .btn-proceder {
-  background: linear-gradient(135deg, var(--color-oscuro), #2a2a2a);
-  border: none;
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  border: 2px solid #999;
   padding: 12px;
   font-weight: 600;
   letter-spacing: 0.5px;
   transition: all 0.3s;
+  color: #2c2c2c;
 }
 
 .btn-proceder:hover {
-  background: linear-gradient(135deg, #2a2a2a, var(--color-oscuro));
+  background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .btn-aplicar {
@@ -161,16 +163,17 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-  
+
   .imagen-producto-carrito {
     margin-bottom: 15px;
   }
-  
-  .btn-continuar, .btn-vaciar {
+
+  .btn-continuar,
+  .btn-vaciar {
     width: 100%;
     margin-bottom: 10px;
   }
-  
+
   .d-flex.justify-content-between {
     flex-direction: column;
   }

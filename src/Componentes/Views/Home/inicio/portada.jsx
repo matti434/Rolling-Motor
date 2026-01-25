@@ -4,11 +4,6 @@ const Portada = () => {
   return (
     <div className="portada-container mt-5 py-5">
       <div className="portada-imagen-wrapper">
-        <img
-          className="portada-imagen"
-          src="Portada/Royal-Enfield-Classic-500-Pegasus-Edition-1.jpg"
-          alt="Royal Enfield Moto"
-        />
       </div>
       <h2 className="portada-titulo">
         UNA MOTOR QUE REALMENTE ESTÁ CONSTRUIDA COMO UN ARMA <br />Y VA COMO UNA

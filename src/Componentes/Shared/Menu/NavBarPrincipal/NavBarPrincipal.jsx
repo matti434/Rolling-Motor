@@ -52,13 +52,10 @@ export const NavBarPrincipal = ({ onAbrirRegistro, onAbrirLogin }) => {
       className="barra-navegacion-royal"
     >
       <Container>
-        <Navbar.Brand as={Link} to="/" className="marca-royal">
-          <img
-            src="Logo/logo_convertido.png"
-            alt="Rolling Motors"
-            height="40"
-          />
-        </Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" className="marca-royal-texto">
+  Rolling <strong>Motor</strong>
+</Navbar.Brand>
+
 
         <Navbar.Collapse className="d-none d-md-flex">
           <Nav className="ms-auto align-items-center gap-3">

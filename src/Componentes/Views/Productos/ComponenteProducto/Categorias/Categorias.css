@@ -1,155 +1,173 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* ================= CONTENEDOR ================= */
 
 .contenedor-principal {
-    width: 95%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
+  width: 95%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 24px;
 }
 
+/* ================= TARJETA ================= */
 
 .contenedor-tarjeta {
-    width: 100%;
-    border-radius: 0;
-    overflow: hidden;
-    margin-top: 100px;
-}
-
-.altura-tarjeta {
-    height: 250px;
-}
-
-@media (max-width: 768px) {
-    .altura-tarjeta {
-        height: auto;
-        min-height: 230px;
-    }
-}
-
-
-.imagen-tarjeta {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    mask-image: linear-gradient(
-        rgb(0, 0, 0) 85%, 
-        transparent
-    );
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: transform 0.3s ease;
+  width: 100%;
+  margin-top: 80px;
+  position: relative;
 }
 
 .tarjeta-hover {
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border-radius: 15px;
-    overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 2px solid #d0d0d0;
+  cursor: pointer;
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
 }
 
 .tarjeta-hover:hover {
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25) !important;
-    transform: translateY(-8px);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= IMAGEN ================= */
+
+.altura-tarjeta {
+  height: 240px;
+}
+
+.imagen-tarjeta {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  mask-image: linear-gradient(rgb(0, 0, 0) 85%,
+      transparent);
+
+  transition: transform 0.4s ease;
+  will-change: transform;
 }
 
 .tarjeta-hover:hover .imagen-tarjeta {
-    transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-
-.cuerpo-tarjeta {
-    background-color: #dadcdfff !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem !important;
-    height: 100%;
-}
-
-.titulo-categoria {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #2c3e50 !important;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.texto-descripcion {
-    color: #5d6d7e !important;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
-
-.boton-categoria {
-    background: transparent;
-    border: 2px solid #2c3e50;
-    color: #2c3e50;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.boton-categoria:hover {
-    background: #2c3e50;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
-}
-
+/* ================= OVERLAY ================= */
 
 .superposicion-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        45deg,
-        rgba(44, 62, 80, 0.1) 0%,
-        transparent 50%,
-        rgba(44, 62, 80, 0.1) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg,
+      rgba(44, 62, 80, 0.12),
+      transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
 }
 
 .tarjeta-hover:hover .superposicion-hover {
-    opacity: 1;
+  opacity: 1;
 }
 
-.contenido-tarjeta {
-    position: relative;
-    z-index: 2;
+/* ================= CONTENIDO ================= */
+
+.cuerpo-tarjeta {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.4rem;
+  height: 100%;
 }
 
+.titulo-categoria {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  background: linear-gradient(45deg, #2c2c2c, #c89b2b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.texto-descripcion {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: #666666;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* ================= BOTON ================= */
+
+.boton-categoria {
+  align-self: flex-start;
+  padding: 10px 26px;
+  border-radius: 999px;
+
+  background: transparent;
+  border: 2px solid #c89b2b;
+  color: #c89b2b;
+
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  will-change: transform;
+}
+
+.boton-categoria:hover {
+  background: #c89b2b;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(200, 155, 43, 0.35);
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-    .titulo-categoria {
-        font-size: 1.8rem;
-    }
-    
-    .texto-descripcion {
-        font-size: 1rem;
-    }
-    
-    .cuerpo-tarjeta {
-        padding: 1.5rem !important;
-    }
-    
-    .tarjeta-hover {
-        height: auto !important;
-        min-height: 280px;
-    }
+  .altura-tarjeta {
+    height: 200px;
+  }
+
+  .cuerpo-tarjeta {
+    padding: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor-tarjeta {
+    margin-top: 60px;
+  }
+
+  .altura-tarjeta {
+    height: 180px;
+  }
+
+  .boton-categoria {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ================= PERFORMANCE ================= */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }

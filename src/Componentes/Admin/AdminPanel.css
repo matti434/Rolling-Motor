@@ -2,32 +2,32 @@
   padding: 20px;
   max-width: 1400px;
   margin: 0 auto;
-  background: var(--color-crema);
+  background: #f8f8f8;
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .encabezado-administracion {
   margin-bottom: 30px;
-  border-bottom: 3px solid var(--color-dorado);
+  border-bottom: 3px solid #c89b2b;
   padding: 25px;
-  background: var(--color-oscuro);
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .encabezado-administracion h1 {
-  color: var(--color-crema);
+  color: #2c2c2c;
   margin: 0;
   font-size: 2.2rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-weight: 300;
-  border-bottom: 2px solid var(--color-dorado);
+  border-bottom: 2px solid #c89b2b;
   padding-bottom: 15px;
 }
 
@@ -770,101 +770,101 @@
   .panel-administracion {
     padding: 10px;
   }
-  
+
   .encabezado-administracion {
     padding: 15px 12px;
     margin-bottom: 15px;
   }
-  
+
   .encabezado-administracion h1 {
     font-size: 1.6rem;
     margin-bottom: 12px;
     padding-bottom: 8px;
   }
-  
+
   .navegacion-administracion {
     flex-direction: column;
     gap: 6px;
     margin-bottom: 12px;
   }
-  
+
   .navegacion-administracion button {
     width: 100%;
     padding: 10px 15px;
     font-size: 0.8rem;
     min-width: auto;
   }
-  
+
   .controles-encabezado {
     width: 100%;
   }
-  
+
   .boton-sincronizar {
     width: 100%;
     padding: 10px 15px;
     font-size: 0.8rem;
   }
-  
+
   .contenedor-tabla {
     padding: 15px 12px;
     margin-bottom: 15px;
     border-radius: 8px;
   }
-  
+
   .contenedor-tabla h2 {
     font-size: 1.3rem;
     margin-bottom: 15px;
     padding-bottom: 8px;
   }
-  
+
   .tabla-resumen {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  
+
   .tarjeta-resumen {
     padding: 15px;
   }
-  
+
   .numero-resumen {
     font-size: 1.8rem;
   }
-  
+
   .encabezado-productos {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
     margin-bottom: 15px;
   }
-  
+
   .boton-agregar {
     width: 100%;
     text-align: center;
     padding: 10px 15px;
     font-size: 0.85rem;
   }
-  
+
   .tabla-responsive {
     border: none;
     background: transparent;
     overflow-x: visible;
   }
-  
+
   .tabla-administracion {
     min-width: 100%;
     background: transparent;
   }
-  
+
   .tabla-administracion thead {
     display: none;
   }
-  
+
   .tabla-administracion tbody {
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
-  
+
   .tabla-administracion tr {
     display: flex;
     flex-direction: column;
@@ -876,14 +876,14 @@
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
   }
-  
+
   .tabla-administracion tr:hover {
     background: rgba(200, 155, 43, 0.15);
     border-color: var(--color-dorado);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
-  
+
   .tabla-administracion td {
     display: flex;
     justify-content: space-between;
@@ -896,13 +896,13 @@
     font-size: 0.9rem;
     line-height: 1.4;
   }
-  
+
   .tabla-administracion td:last-child {
     border-bottom: none;
     margin-bottom: 0;
     padding-top: 12px;
   }
-  
+
   .tabla-administracion td::before {
     content: attr(data-label);
     font-weight: 700;
@@ -918,7 +918,7 @@
     border: 1px solid rgba(200, 155, 43, 0.3);
     line-height: 1.2;
   }
-  
+
   .tabla-administracion td[data-label="Acciones"] {
     flex-direction: column;
     align-items: stretch;
@@ -928,7 +928,7 @@
     padding: 12px;
     margin-top: 8px;
   }
-  
+
   .tabla-administracion td[data-label="Acciones"]::before {
     content: "ACCIONES";
     width: 100%;
@@ -938,27 +938,27 @@
     background: rgba(200, 155, 43, 0.15);
     border: 1px solid var(--color-dorado);
   }
-  
+
   .tabla-administracion td[data-label="Imagen"] {
     justify-content: center;
   }
-  
+
   .tabla-administracion td[data-label="Imagen"]::before {
     display: none;
   }
-  
+
   .contenedor-imagen-tabla {
     width: 120px;
     height: 90px;
     margin: 0 auto;
   }
-  
+
   .acciones {
     justify-content: center;
     width: 100%;
     gap: 6px;
   }
-  
+
   .acciones button {
     flex: 1;
     min-width: 120px;
@@ -968,14 +968,14 @@
     font-weight: 700;
     letter-spacing: 0.5px;
   }
-  
+
   .tabla-administracion td[data-label="Email"],
   .tabla-administracion td[data-label="Usuario"],
   .tabla-administracion td[data-label="Nombre"],
   .tabla-administracion td[data-label="Descripción"] {
     word-break: break-word;
   }
-  
+
   .tabla-administracion td[data-label="Email"] span,
   .tabla-administracion td[data-label="Usuario"] span,
   .tabla-administracion td[data-label="Nombre"] span {
@@ -983,33 +983,33 @@
     flex: 1;
     min-width: 0;
   }
-  
+
   .contenedor-formulario {
     padding: 20px 15px;
     margin: 10px;
     border-radius: 10px;
   }
-  
+
   .contenedor-formulario h3 {
     font-size: 1.2rem;
     margin-bottom: 20px;
   }
-  
+
   .grid-campos {
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  
+
   .campo-formulario .vista-previa-imagen {
     max-width: 150px;
     max-height: 112px;
   }
-  
+
   .botones-formulario {
     flex-direction: column;
     gap: 8px;
   }
-  
+
   .botones-formulario button {
     width: 100%;
     padding: 12px 15px;
@@ -1026,65 +1026,65 @@
   .panel-administracion {
     padding: 8px;
   }
-  
+
   .encabezado-administracion {
     padding: 12px 10px;
   }
-  
+
   .encabezado-administracion h1 {
     font-size: 1.4rem;
   }
-  
+
   .navegacion-administracion button {
     padding: 8px 12px;
     font-size: 0.75rem;
   }
-  
+
   .contenedor-tabla {
     padding: 12px 10px;
   }
-  
+
   .contenedor-tabla h2 {
     font-size: 1.2rem;
   }
-  
+
   .tabla-administracion tr {
     padding: 12px;
   }
-  
+
   .tabla-administracion td {
     padding: 8px 6px;
     font-size: 0.9rem;
   }
-  
+
   .tabla-administracion td::before {
     font-size: 0.7rem;
     min-width: 80px;
     margin-right: 10px;
     padding: 3px 6px;
   }
-  
+
   .acciones {
     flex-direction: column;
     gap: 6px;
   }
-  
+
   .acciones button {
     width: 100%;
     min-width: auto;
     padding: 10px 8px;
     font-size: 0.7rem;
   }
-  
+
   .tabla-administracion td[data-label="Acciones"] {
     padding: 10px;
   }
-  
+
   .tabla-administracion td[data-label="Acciones"]::before {
     font-size: 0.7rem;
     padding: 4px 6px;
   }
-  
+
   .contenedor-imagen-tabla {
     width: 100px;
     height: 75px;

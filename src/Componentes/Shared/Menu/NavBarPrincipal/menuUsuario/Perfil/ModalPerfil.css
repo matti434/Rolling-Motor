@@ -1,23 +1,22 @@
-
 .modal-perfil .modal-content,
 .modal-confirmacion .modal-content {
-  background: var(--color-oscuro);
-  border: 2px solid var(--color-dorado);
+  background: #ffffff;
+  border: 2px solid #c89b2b;
   border-radius: 12px;
-  color: var(--color-crema);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  color: #2c2c2c;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .modal-header-perfil,
 .modal-header-confirmacion {
-  background: rgba(200, 155, 43, 0.1);
-  border-bottom: 2px solid var(--color-dorado);
-  color: var(--color-crema);
+  background: rgba(200, 155, 43, 0.08);
+  border-bottom: 2px solid #c89b2b;
+  color: #2c2c2c;
 }
 
 .modal-header-perfil .modal-title,
 .modal-header-confirmacion .modal-title {
-  color: var(--color-dorado);
+  color: #c89b2b;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.8px;
@@ -33,7 +32,7 @@
 .modal-body-perfil,
 .modal-body-confirmacion {
   padding: 25px;
-  background: var(--color-oscuro);
+  background: #ffffff;
 }
 
 .perfil-info {
@@ -49,13 +48,13 @@
   padding: 15px;
   background: rgba(200, 155, 43, 0.05);
   border-radius: 8px;
-  border: 1px solid rgba(200, 155, 43, 0.2);
+  border: 1px solid #d0d0d0;
   transition: all 0.3s ease;
 }
 
 .info-item:hover {
   background: rgba(200, 155, 43, 0.08);
-  border-color: var(--color-dorado);
+  border-color: #c89b2b;
 }
 
 .info-icon {
@@ -74,7 +73,7 @@
 .info-content label {
   display: block;
   font-size: 0.8rem;
-  color: var(--color-dorado);
+  color: #c89b2b;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   font-weight: 600;
@@ -211,31 +210,32 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+
   .modal-perfil .modal-content,
   .modal-confirmacion .modal-content {
     margin: 10px;
   }
-  
+
   .modal-body-perfil,
   .modal-body-confirmacion {
     padding: 20px 15px;
   }
-  
+
   .info-item {
     flex-direction: column;
     gap: 10px;
     text-align: center;
   }
-  
+
   .info-icon {
     align-self: center;
   }
-  
+
   .botones-edicion,
   .botones-accion {
     flex-direction: column;
   }
-  
+
   .botones-edicion .btn,
   .botones-accion .btn {
     width: 100%;
@@ -243,15 +243,16 @@
 }
 
 @media (max-width: 480px) {
+
   .modal-body-perfil,
   .modal-body-confirmacion {
     padding: 15px 10px;
   }
-  
+
   .info-item {
     padding: 12px;
   }
-  
+
   .modal-footer-perfil,
   .modal-footer-confirmacion {
     padding: 15px 20px;
@@ -296,7 +297,7 @@
     font-size: 0.6rem;
     padding: 3px 6px;
   }
-  
+
   .texto-admin {
     font-size: 0.9rem;
   }
