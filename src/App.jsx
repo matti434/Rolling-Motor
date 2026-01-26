@@ -6,6 +6,7 @@ import Pagina404 from "./Componentes/Views/Pagina404/Pagina404";
 import Ofertas from "./Componentes/Views/Productos/Ofertas/Ofertas";
 import PaginaProductos from "./Componentes/Views/Productos/ComponenteProducto/PaginaProductos/PaginaProductos";
 import Contacto from "./Componentes/Views/Contacto/Contacto";
+import Nosotros from "./Componentes/Views/Nosotros/Nosotros";
 import AdminPanelContainer from "./Componentes/Admin/AdminPanelContainer";
 import RutaProtegida from "./Componentes/Utils/RutaProtegida";
 import Categorias from "./Componentes/Views/Productos/ComponenteProducto/Categorias/Categorias";
@@ -31,6 +32,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/contacto" element={<Contacto />} />
+              <Route path="/nosotros" element={<Nosotros />} />
               <Route path="/ofertas" element={<Ofertas />} />
               <Route path="/productos" element={<PaginaProductos />} />
               <Route path="/productos-todos" element={<div className="mt-5 py-5"><Categorias /></div>} />

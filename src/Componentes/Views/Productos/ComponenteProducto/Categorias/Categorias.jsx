@@ -38,6 +38,7 @@ const Categorias = () => {
   return (
     <div className="d-flex justify-content-center contenedor-principal">
       <div className="contenedor-tarjeta">
+      <p className='fs-4 fw-semibold '>Nuestros servicios</p><hr />
 
         <motion.div 
           {...animacionScroll} 

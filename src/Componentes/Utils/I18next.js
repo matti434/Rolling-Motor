@@ -18,7 +18,7 @@ i18n.use(initReactI18next).init({
         userMenu: "User Menu",
 
         // === TRADUCCIONES PARA LOGIN ===
-        loginTitle: "LOGIN",
+        loginTitle: "Your journey continues at Rolling Motors",
         loginSubtitle: "Enter your credentials to access your account",
         usernameOrEmail: "USERNAME OR EMAIL",
         usernameOrEmailPlaceholder: "username123 or example@mail.com",
@@ -76,7 +76,7 @@ i18n.use(initReactI18next).init({
         userMenu: "Menú de usuario",
 
         // === TRADUCCIONES PARA LOGIN (al nivel raíz) ===
-        loginTitle: "INICIAR SESIÓN",
+        loginTitle: "Tu camino continúa en Rolling Motors",
         loginSubtitle: "Ingresa tus credenciales para acceder a tu cuenta",
         usernameOrEmail: "USUARIO O EMAIL",
         usernameOrEmailPlaceholder: "usuario123 o ejemplo@correo.com",

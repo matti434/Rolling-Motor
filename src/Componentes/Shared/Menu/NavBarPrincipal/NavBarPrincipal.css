@@ -1,382 +1,397 @@
-/* ================= MARCA ROLLING MOTORS ================= */
-
-.marca-royal-texto {
-  font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.8px !important;
-  font-family: 'Montserrat', sans-serif !important;
-  text-transform: uppercase !important;
-  
-  background: linear-gradient(
-    90deg,
-    #c89b2b 0%,
-    #d4af37 50%,
-    #c89b2b 100%
-  );
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-  
+/* ================= NAVBAR MODERNO ================= */
+.navbar-moderno {
+  background: rgba(0, 0, 0, 0.95) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
 }
 
-.marca-royal-texto:hover {
-  background-position: right center;
-  filter: drop-shadow(0 2px 6px rgba(200, 155, 43, 0.4));
-  transform: scale(1.02);
+.navbar-moderno.scrolled {
+  padding: 0.75rem 0;
+  background: rgba(0, 0, 0, 0.98) !important;
 }
 
-.marca-royal-texto strong {
+/* ================= LOGO MODERNO ================= */
+.logo-brand {
+  padding: 0;
+  margin-right: 2rem;
+}
+
+.logo-text {
+  font-size: 1.8rem;
   font-weight: 800;
-  letter-spacing: 1px;
-}
-
-/* ================= BOTÓN REGISTRARSE MODERNO ================= */
-
-.btn-registrarse,
-.modal-registro-personalizado .btn-primary {
-  background: linear-gradient(
-    135deg,
-    #c89b2b 0%,
-    #d4af37 50%,
-    #c89b2b 100%
-  );
-  background-size: 200% auto;
-  color: #ffffff !important;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif !important;
-
-  border: none;
-  border-radius: 8px;
-  padding: 0.7rem 1.8rem;
-
-  box-shadow: 0 4px 12px rgba(200, 155, 43, 0.25);
-
-  transition: all 0.3s ease;
-
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-/* ================= EFECTO BRILLO MEJORADO ================= */
-
-.btn-registrarse::before,
-.modal-registro-personalizado .btn-primary::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    45deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 80%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  z-index: 1;
-}
-
-/* ================= EFECTO BURBUJAS FLOTANTES ================= */
-
-.btn-registrarse::after,
-.modal-registro-personalizado .btn-primary::after {
-  content: "";
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  top: 50%;
-  left: 20%;
-  transform: translateY(-50%);
-  animation: floatBubble 3s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
-
-@keyframes floatBubble {
-  0%, 100% {
-    transform: translateY(-50%) translateX(0);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translateY(-60%) translateX(10px);
-    opacity: 0.9;
-  }
-}
-
-/* ================= HOVER ANIMADO Y COLORIDO ================= */
-
-.btn-registrarse:hover,
-.modal-registro-personalizado .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(200, 155, 43, 0.4);
-  background-position: right center;
-  color: #ffffff !important;
-}
-
-.btn-registrarse:hover::before,
-.modal-registro-personalizado .btn-primary:hover::before {
-  transform: translateX(100%);
-}
-
-/* ================= EFECTO DE PARTÍCULAS EN HOVER ================= */
-
-.btn-registrarse .particles,
-.modal-registro-personalizado .btn-primary .particles {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.btn-registrarse .particle,
-.modal-registro-personalizado .btn-primary .particle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.7);
-  animation: particlePop 0.6s ease-out forwards;
-}
-
-@keyframes particlePop {
-  0% {
-    transform: translate(0, 0) scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(var(--tx), var(--ty)) scale(1);
-    opacity: 0;
-  }
-}
-
-/* ================= ACTIVE CON EFECTO DE PULSO ================= */
-
-.btn-registrarse:active,
-.modal-registro-personalizado .btn-primary:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow:
-    0 8px 20px rgba(255, 107, 107, 0.5),
-    0 2px 0 #ff8e53,
-    inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  
-  animation: pulseClick 0.3s ease-out;
-}
-
-@keyframes pulseClick {
-  0% {
-    box-shadow:
-      0 8px 20px rgba(255, 107, 107, 0.5),
-      0 2px 0 #ff8e53,
-      inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    box-shadow:
-      0 8px 20px rgba(255, 107, 107, 0.7),
-      0 2px 0 #ff8e53,
-      0 0 0 8px rgba(255, 107, 107, 0.2),
-      inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  100% {
-    box-shadow:
-      0 8px 20px rgba(255, 107, 107, 0.5),
-      0 2px 0 #ff8e53,
-      inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-}
-
-/* ================= FOCUS CON EFECTO NEÓN ================= */
-
-.btn-registrarse:focus-visible,
-.modal-registro-personalizado .btn-primary:focus-visible {
-  outline: none;
-  animation: neonPulse 1.5s infinite alternate;
-}
-
-@keyframes neonPulse {
-  from {
-    box-shadow:
-      0 0 0 3px rgba(255, 107, 107, 0.8),
-      0 20px 40px rgba(255, 107, 107, 0.6),
-      0 6px 0 #ff6b6b,
-      inset 0 2px 6px rgba(255, 255, 255, 0.6),
-      0 0 20px rgba(255, 107, 107, 0.4);
-  }
-  to {
-    box-shadow:
-      0 0 0 3px rgba(255, 107, 107, 0.8),
-      0 20px 40px rgba(255, 107, 107, 0.8),
-      0 6px 0 #ff6b6b,
-      inset 0 2px 6px rgba(255, 255, 255, 0.6),
-      0 0 30px rgba(255, 107, 107, 0.6);
-  }
-}
-
-/* ================= VARIANTES DE COLOR ALTERNATIVAS ================= */
-
-/* Versión Azul-Verde */
-.btn-registrarse.azul-verde,
-.modal-registro-personalizado .btn-primary.azul-verde {
-  background: linear-gradient(
-    135deg,
-    #4361ee,  /* Azul vibrante */
-    #3a0ca3,  /* Azul oscuro */
-    #4cc9f0   /* Turquesa */
-  );
-  box-shadow:
-    0 12px 30px rgba(67, 97, 238, 0.4),
-    0 4px 0 #4361ee,
-    inset 0 2px 4px rgba(255, 255, 255, 0.5);
-}
-
-.btn-registrarse.azul-verde:hover,
-.modal-registro-personalizado .btn-primary.azul-verde:hover {
-  box-shadow:
-    0 20px 40px rgba(67, 97, 238, 0.6),
-    0 6px 0 #3a0ca3,
-    inset 0 2px 6px rgba(255, 255, 255, 0.6),
-    0 0 20px rgba(67, 97, 238, 0.4);
-}
-
-/* Versión Rosa-Púrpura */
-.btn-registrarse.rosa-purpura,
-.modal-registro-personalizado .btn-primary.rosa-purpura {
-  background: linear-gradient(
-    135deg,
-    #f72585,  /* Rosa fucsia */
-    #7209b7,  /* Púrpura */
-    #b5179e   /* Magenta */
-  );
-  box-shadow:
-    0 12px 30px rgba(247, 37, 133, 0.4),
-    0 4px 0 #f72585,
-    inset 0 2px 4px rgba(255, 255, 255, 0.5);
-}
-
-.btn-registrarse.rosa-purpura:hover,
-.modal-registro-personalizado .btn-primary.rosa-purpura:hover {
-  box-shadow:
-    0 20px 40px rgba(247, 37, 133, 0.6),
-    0 6px 0 #7209b7,
-    inset 0 2px 6px rgba(255, 255, 255, 0.6),
-    0 0 20px rgba(247, 37, 133, 0.4);
-}
-
-/* Versión Verde-Éxito */
-.btn-registrarse.verde-exito,
-.modal-registro-personalizado .btn-primary.verde-exito {
-  background: linear-gradient(
-    135deg,
-    #2ec4b6,  /* Verde turquesa */
-    #06d6a0,  /* Verde brillante */
-    #118ab2   /* Azul verdoso */
-  );
-  box-shadow:
-    0 12px 30px rgba(46, 196, 182, 0.4),
-    0 4px 0 #2ec4b6,
-    inset 0 2px 4px rgba(255, 255, 255, 0.5);
-}
-
-.btn-registrarse.verde-exito:hover,
-.modal-registro-personalizado .btn-primary.verde-exito:hover {
-  box-shadow:
-    0 20px 40px rgba(46, 196, 182, 0.6),
-    0 6px 0 #06d6a0,
-    inset 0 2px 6px rgba(255, 255, 255, 0.6),
-    0 0 20px rgba(46, 196, 182, 0.4);
-}
-
-/* ================= EFECTO DE ICONO FLOTANTE ================= */
-
-.btn-registrarse .icon-container,
-.modal-registro-personalizado .btn-primary .icon-container {
-  position: relative;
+  letter-spacing: -0.5px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.25rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
 }
 
-.btn-registrarse i,
-.modal-registro-personalizado .btn-primary i {
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+.logo-primary {
+  color: #fff;
+  font-weight: 700;
+  position: relative;
+  padding: 0.2rem 0;
 }
 
-.btn-registrarse:hover i,
-.modal-registro-personalizado .btn-primary:hover i {
-  transform: translateY(-2px) rotate(10deg);
+.logo-primary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.logo-text:hover .logo-primary::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.logo-secondary {
+  color: #ff6b6b;
+  font-weight: 800;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.logo-text:hover {
+  transform: translateY(-1px);
+}
+
+/* ================= SELECTOR DE IDIOMA MODERNO ================= */
+.language-selector {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+  padding: 0.3rem;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.language-selector:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.lang-btn.active {
+  color: #fff;
+  background: linear-gradient(45deg, #8a0000, #ff8e53);
+  box-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
+}
+
+.lang-btn:not(.active):hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lang-divider {
+  width: 1px;
+  height: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lang-icon {
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: 0.75rem;
+  margin-right: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* ================= BOTONES DE AUTENTICACIÓN ================= */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.login-btn, .register-btn, .user-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.login-btn {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.register-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(224, 243, 81, 0.4);
+}
+
+.register-btn:hover::before {
+  left: 100%;
+}
+
+.user-btn {
+  background: linear-gradient(45deg, #4361ee, #3a0ca3);
+  color: white;
+  min-width: 120px;
+}
+
+.user-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+/* ================= MENÚ MÓVIL ================= */
+.mobile-menu {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.mobile-language {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mobile-lang-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-lang-btn.active {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  color: white;
+  border-color: transparent;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  background: transparent !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.hamburger {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: linear-gradient(45deg, #e6e181, #ff8e53);
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* ================= RESPONSIVE ================= */
-
-@media (max-width: 768px) {
-  .btn-registrarse,
-  .modal-registro-personalizado .btn-primary {
-    padding: 0.9rem 2rem;
-    font-size: 0.95rem;
-    border-radius: 14px;
+@media (max-width: 991px) {
+  .mobile-menu {
+    display: flex;
   }
   
-  .btn-registrarse:hover,
-  .modal-registro-personalizado .btn-primary:hover {
-    transform: translateY(-2px) scale(1.03);
+  .language-selector,
+  .auth-buttons,
+  .user-actions {
+    display: none !important;
+  }
+  
+  .navbar-collapse {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+  
+  .navbar-collapse .nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .auth-buttons.mobile,
+  .user-actions.mobile {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .login-btn, .register-btn, .user-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
-/* ================= CLASE PARA DESACTIVADO ================= */
-
-.btn-registrarse:disabled,
-.modal-registro-personalizado .btn-primary:disabled {
-  background: linear-gradient(
-    135deg,
-    #cccccc,
-    #999999,
-    #666666
-  );
-  color: #888888;
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.1),
-    0 2px 0 #999999,
-    inset 0 1px 3px rgba(255, 255, 255, 0.3);
-  cursor: not-allowed;
-  transform: none !important;
-  animation: none !important;
+@media (max-width: 576px) {
+  .logo-text {
+    font-size: 1.4rem;
+  }
+  
+  .mobile-menu {
+    gap: 0.5rem;
+  }
+  
+  .mobile-language {
+    gap: 0.25rem;
+  }
+  
+  .mobile-lang-btn {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+  }
 }
 
-.btn-registrarse:disabled:hover,
-.modal-registro-personalizado .btn-primary:disabled:hover {
-  transform: none !important;
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.1),
-    0 2px 0 #999999,
-    inset 0 1px 3px rgba(255, 255, 255, 0.3);
+@media (max-width: 375px) {
+  .navbar-moderno {
+    padding: 0.75rem 0;
+  }
+  
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  
+  .mobile-menu {
+    gap: 0.4rem;
+  }
+  
+  .mobile-lang-btn {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+  }
 }
 
-/* ================= ANIMACIÓN DE ENTRADA ================= */
-
-.btn-registrarse.animate-in,
-.modal-registro-personalizado .btn-primary.animate-in {
-  animation: buttonEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+@media (max-width: 320px) {
+  .navbar-moderno .container-xl {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .logo-text {
+    font-size: 1rem;
+  }
+  
+  .mobile-menu {
+    gap: 0.3rem;
+    flex-shrink: 0;
+  }
+  
+  .mobile-language {
+    gap: 0.2rem;
+  }
+  
+  .mobile-lang-btn {
+    padding: 0.15rem 0.4rem;
+    font-size: 0.65rem;
+    min-width: auto;
+  }
+  
+  .navbar-toggler {
+    padding: 0.25rem;
+  }
+  
+  .hamburger {
+    width: 18px;
+    height: 1.5px;
+    margin: 3px 0;
+  }
 }
 
-@keyframes buttonEntrance {
-  0% {
+/* ================= ANIMACIONES ================= */
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    transform: translateY(30px) scale(0.8);
+    transform: translateY(-10px);
   }
-  70% {
-    transform: translateY(-5px) scale(1.05);
-  }
-  100% {
+  to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
-}   
+}
+
+.logo-brand,
+.language-selector,
+.auth-buttons {
+  animation: fadeIn 0.5s ease forwards;
+}

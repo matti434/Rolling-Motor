@@ -6,7 +6,7 @@ const Portada = () => {
       <div className="portada-imagen-wrapper">
       </div>
       <h2 className="portada-titulo">
-        UNA MOTOR QUE REALMENTE ESTÁ CONSTRUIDA COMO UN ARMA <br />Y VA COMO UNA
+        UN  MOTOR QUE REALMENTE ESTÁ CONSTRUIDA COMO UN ARMA <br />Y VA COMO UNA
         BALA
       </h2>
 

@@ -4,16 +4,12 @@
   box-sizing: border-box;
 }
 
-/* ================= CONTENEDOR ================= */
-
 .contenedor-principal {
   width: 95%;
   max-width: 1200px;
-  margin: 40px auto;
-  padding: 40px 24px;
+  margin: 20px auto;
+  padding: 10px 14px;
 }
-
-/* ================= TARJETA ================= */
 
 .contenedor-tarjeta {
   width: 100%;

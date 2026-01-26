@@ -70,6 +70,7 @@ const Footer = () => {
           <div className="footer__column">
             <h4>Mi Cuenta</h4>
             <ul>
+              <li><Link to="/nosotros">Nosotros</Link></li>
               <li>
                 <button 
                   className="footer-link-btn"
