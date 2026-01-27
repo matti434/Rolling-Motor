@@ -9,8 +9,8 @@ const SplashScreen = ({ onFinish }) => {
       setIsVisible(false);
       setTimeout(() => {
         onFinish();
-      }, 500); // Tiempo para la animación de salida
-    }, 2500); // 2.5 segundos mostrando el logo
+      }, 400); 
+    }, 1500); 
 
     return () => clearTimeout(timer);
   }, [onFinish]);
