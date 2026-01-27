@@ -1,34 +1,41 @@
 import { Modal } from "react-bootstrap";
 import FormLogin from "./FormLogin/FormLogin";
 import { useLoginViewModel } from "./useLoginViewModel";
-import { useTranslation } from "react-i18next";
 import "./Login.css";
 
 const Login = ({ onClose, onAbrirRegistro }) => {
   const { iniciarSesion } = useLoginViewModel({ onClose });
-  const { t } = useTranslation();
 
   return (
     <Modal
       show={true}
       onHide={onClose}
       centered
-      size="lg"
-      backdrop="static"
+      backdrop={false}
       keyboard={false}
-      dialogClassName="modal-login-personalizado"
+      dialogClassName="modal-login-moderno"
     >
-      <Modal.Header closeButton className="encabezado-modal-personalizado">
-       <Modal.Title>{t('loginTitle')}</Modal.Title>
-      </Modal.Header>
+      <div className="modal-overlay" onClick={onClose}></div>
+      <div className="modal-container">
+        <button className="btn-cerrar-moderno" onClick={onClose}>
+          ×
+        </button>
 
-      <Modal.Body className="cuerpo-modal-personalizado p-0">
-        <FormLogin
-          onSubmit={iniciarSesion}
-          onClose={onClose}
-          onAbrirRegistro={onAbrirRegistro}
-        />
-      </Modal.Body>
+        <div className="encabezado-login">
+          <h2 className="titulo-login">Tu camino continúa en Rolling Motors</h2>
+          <p className="subtitulo-login">
+            Ingresa tus credenciales para acceder a tu cuenta
+          </p>
+        </div>
+
+        <div className="cuerpo-login">
+          <FormLogin
+            onSubmit={iniciarSesion}
+            onClose={onClose}
+            onAbrirRegistro={onAbrirRegistro}
+          />
+        </div>
+      </div>
     </Modal>
   );
 };

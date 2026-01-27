@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap');
 
 .card-moto {
-  border: 1px solid var(--color-metal);
-  border-radius: 8px;
+  border: none;
+  border-radius: 16px;
   overflow: hidden;
-  background-color: var(--color-crema);
-  box-shadow: 0 3px 8px rgba(26, 26, 26, 0.12);
+  background: var(--color-fondo-secundario);
+  box-shadow: var(--sombra-fuerte);
   transition: all 0.3s ease;
   margin: 15px 10px;
   max-width: 320px;
@@ -14,13 +14,24 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   position: relative;
 }
 
+.card-moto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-dorado), var(--color-rojo));
+  z-index: 1;
+}
+
 .card-moto:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(26, 26, 26, 0.2);
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-dorada), 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -94,8 +105,8 @@
 }
 
 .contenido-card {
-  padding: 16px;
-  background-color: var(--color-crema);
+  padding: 1.5rem;
+  background: var(--color-fondo-secundario);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -103,26 +114,27 @@
 }
 
 .marca-modelo {
-  margin-bottom: 12px;
-  border-bottom: 1.5px solid var(--color-dorado);
-  padding-bottom: 8px;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-dorado);
+  padding-bottom: 0.8rem;
 }
 
 .nombre-marca {
-  font-size: 13px;
+  font-size: 0.8rem;
   color: var(--color-rojo);
   text-transform: uppercase;
   font-weight: 700;
-  font-family: 'Oswald', sans-serif;
-  margin-bottom: 3px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
 }
 
 .nombre-modelo {
-  margin: 4px 0 0 0;
-  font-size: 20px;
-  color: var(--color-oscuro);
-  font-family: 'Oswald', sans-serif;
-  font-weight: 600;
+  margin: 0.3rem 0 0 0;
+  font-size: 1.3rem;
+  color: var(--color-texto-oscuro);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
   line-height: 1.2;
 }
 
@@ -186,36 +198,32 @@
 
 .contenedor-precio {
   text-align: center;
-  margin: 16px 0;
-  padding: 14px;
-  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-  border-radius: 6px;
-  border: 1.5px solid #c89b2b;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--color-fondo-card), rgba(200, 155, 43, 0.15));
+  border-radius: 12px;
+  border: 2px solid var(--color-dorado);
+  position: relative;
 }
 
-.texto-precio-desde {
-  font-size: 11px;
-  color: var(--color-crema);
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
+.contenedor-precio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-dorado), var(--color-rojo));
+  border-radius: 12px 12px 0 0;
 }
 
 .valor-precio {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: var(--color-dorado);
-  margin: 8px 0;
-  /* Reducido */
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-  font-family: 'Oswald', sans-serif;
-}
-
-.texto-precio-final {
-  font-size: 11px;
-  color: var(--color-crema);
-  opacity: 0.9;
-  margin-top: 4px;
+  margin: 0.5rem 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .contenedor-botones {
