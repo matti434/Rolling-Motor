@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import SplashScreen from "./Componentes/Shared/SplashScreen/SplashScreen";
 import Menu from "./Componentes/Shared/Menu/Menu";
 import Home from "./Componentes/Views/Home/Home";
 import Pagina404 from "./Componentes/Views/Pagina404/Pagina404";
@@ -22,6 +24,11 @@ import { ProveedorProductos } from "./Componentes/Context/ContextoProducto";
 import { CarritoProvider } from "./Componentes/Context/ContextoCarrito";
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  if (showSplash) {
+    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+  }
 
   return (
     <CarritoProvider>
