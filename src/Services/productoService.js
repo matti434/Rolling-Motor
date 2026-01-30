@@ -1,5 +1,5 @@
 import * as persistence from './persistence/productoPersistence';
-import { Producto } from '../Models/Producto';
+import { Producto } from '../Models';
 
 export const productoService = {
   obtenerTodos: () => {

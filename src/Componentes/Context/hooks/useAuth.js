@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import toast from "react-hot-toast";
-import { usuarioService } from "../../../Services/usuarioService";
+import { usuarioService } from "../../../Services";
 
 export const useAuthActions = (setUsuarioActual, setUsuarios) => {
   const login = useCallback((credenciales) => {

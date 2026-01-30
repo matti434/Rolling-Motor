@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { usuarioService } from "../../../Services/usuarioService";
+import { usuarioService } from "../../../Services";
 
 export const useUsuarioDataActions = () => {
   const obtenerUsuarioPorId = useCallback((id) => usuarioService.obtenerPorId(id), []);

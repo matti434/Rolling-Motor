@@ -1,5 +1,5 @@
 import * as persistence from './persistence/usuarioPersistence';
-import { Usuario } from '../Models/Usuario';
+import { Usuario } from '../Models';
 
 export const usuarioService = {
   obtenerTodos: () => {

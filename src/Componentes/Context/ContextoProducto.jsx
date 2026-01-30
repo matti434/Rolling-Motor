@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useCallback,
 } from "react";
-import { productoService } from "../../Services/productoService";
+import { productoService } from "../../Services";
 
 const ContextoProducto = createContext();
 

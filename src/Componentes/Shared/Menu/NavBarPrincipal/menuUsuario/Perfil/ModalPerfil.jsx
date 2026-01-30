@@ -11,7 +11,7 @@ import {
   FaCrown 
 } from "react-icons/fa";
 import toast from "react-hot-toast";
-import { usuarioService } from "../../../../../../Services/usuarioService";
+import { usuarioService } from "../../../../../../Services";
 import "../../../../../../estilos/variables.css";
 import "./ModalPerfil.css";
 

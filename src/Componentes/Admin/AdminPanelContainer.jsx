@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAdminViewModel } from '../../ViewModels/useAdminViewModel';
+import { useAdminViewModel } from '../../ViewModels';
 import { AdminPanelView } from './AdminPanelView';
 
 

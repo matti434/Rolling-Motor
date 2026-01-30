@@ -1,4 +1,4 @@
-import { useCarritoViewModel } from '../../../../ViewModels/useCarritoViewModel';
+import { useCarritoViewModel } from '../../../../ViewModels';
 import CarritoView from './CarritoView';
 
 const CarritoContainer = () => {

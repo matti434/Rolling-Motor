@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import toast from "react-hot-toast";
-import { usuarioService } from "../../Services/usuarioService";
+import { usuarioService } from "../../Services";
 import { useAuthActions } from "./hooks/useAuth";
 import { useUsuariosManagement } from "./hooks/useUsuariosManagement";
 import { useUsuarioDataActions } from "./hooks/useUsuarioData";
