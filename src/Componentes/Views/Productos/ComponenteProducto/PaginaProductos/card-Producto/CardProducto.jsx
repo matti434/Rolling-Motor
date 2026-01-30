@@ -1,5 +1,15 @@
 import { useNavigate } from 'react-router-dom'; 
 import { useCarrito } from '../../../../../Context/ContextoCarrito';
+import { 
+  crearProductoData, 
+  generarIdCarrito,
+  validarStock,
+  formatearPrecio, 
+  formatearKilometros, 
+  truncarTexto, 
+  acortarUbicacion 
+} from '../../../../../Utils/productoUtils';
+import toast from 'react-hot-toast';
 import '../../../../../../estilos/variables.css';
 import './CardProducto.css';
 
@@ -20,95 +30,37 @@ const CardProducto = ({
   const navigate = useNavigate(); 
   const { agregarAlCarrito } = useCarrito();
 
+  // Crear objeto producto normalizado
+  const productoBase = { id, marca, modelo, año, precio, imagen, kilometros, ubicacion, descripcion, destacado, stock };
+
   const handleComprarClick = (e) => {
     if (e) e.stopPropagation();
-
-    const productoData = {
-      id: id || Date.now().toString(),
-      marca,
-      modelo,
-      año,
-      precio,
-      imagen,
-      kilometros,
-      ubicacion,
-      descripcion,
-      destacado,
-      stock
-    };
-
+    const productoData = crearProductoData(productoBase);
     navigate('/detalle-producto', { state: { producto: productoData } });
   };
 
   const handleAgregarCarrito = (e) => {
     e.stopPropagation();
 
-    if (!stock) {
-      alert('Este producto no está disponible');
+    if (!validarStock({ stock })) {
+      toast.error('Este producto no está disponible');
       return;
     }
 
-    const productoData = {
-      id: id || `card-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      marca,
-      modelo,
-      año,
-      precio,
-      imagen,
-      kilometros,
-      ubicacion,
-      descripcion,
-      destacado,
-      stock
-    };
-
+    const productoData = crearProductoData({
+      ...productoBase,
+      id: id || generarIdCarrito()
+    });
 
     agregarAlCarrito(productoData, 1);
-
-    alert(`${marca} ${modelo} agregado al carrito`);
+    toast.success(`${marca} ${modelo} agregado al carrito`);
   };
 
   const handleCardClick = (e) => {
     if (!e.target.closest('button')) {
-      const productoData = {
-        id: id || Date.now().toString(),
-        marca,
-        modelo,
-        año,
-        precio,
-        imagen,
-        kilometros,
-        ubicacion,
-        descripcion,
-        destacado,
-        stock
-      };
-
+      const productoData = crearProductoData(productoBase);
       navigate('/detalle-producto', { state: { producto: productoData } });
     }
-  };
-
-  const truncarTexto = (texto, maxLength = 75) => {
-    if (!texto || texto.length <= maxLength) return texto;
-    return texto.substring(0, maxLength) + '...';
-  };
-
-  const formatearPrecio = (precioStr) => {
-    if (!precioStr) return "0";
-    const numero = parseInt(precioStr.replace(/\D/g, ''));
-    return isNaN(numero) ? "0" : numero.toLocaleString('es-ES');
-  };
-
-  const formatearKilometros = (kmStr) => {
-    if (!kmStr) return "0 km";
-    const numero = parseInt(kmStr.replace(/\D/g, ''));
-    return isNaN(numero) ? "0 km" : numero.toLocaleString('es-ES') + ' km';
-  };
-
-  const acortarUbicacion = (ubicacionStr) => {
-    if (!ubicacionStr) return "";
-    if (ubicacionStr.length <= 20) return ubicacionStr;
-    return ubicacionStr.substring(0, 20) + '...';
   };
 
   return (

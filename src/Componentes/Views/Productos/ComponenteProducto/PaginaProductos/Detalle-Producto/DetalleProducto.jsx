@@ -1,5 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useCarrito } from '../../../../../Context/ContextoCarrito';
+import { crearProductoData, validarStock, PRODUCTO_DEFAULT } from '../../../../../Utils/productoUtils';
+import toast from 'react-hot-toast';
 import '../../../../../../estilos/variables.css';
 import './DetalleProducto.css';
 
@@ -8,51 +10,29 @@ const DetalleProducto = () => {
   const navigate = useNavigate();
   const { agregarAlCarrito } = useCarrito();
 
-  const productoData = location.state?.producto || {
-
-    id: null, 
-    marca: "Royal Enfield",
-    modelo: "Classic 350",
-    año: 2020,
-    precio: "450.000",
-    imagen: "https://images.pexels.com/photos/5192876/pexels-photo-5192876.jpeg",
-    kilometros: "12.000",
-    ubicacion: "Buenos Aires, AR",
-    descripcion: "Moto en excelente estado, mantenimiento al día. Perfecta para ciudad y rutas cortas.",
-    destacado: false,
-    stock: true
-  };
+  // Usar producto de navegación o valores por defecto
+  const productoData = location.state?.producto || PRODUCTO_DEFAULT;
 
   const handleComprarAhora = () => {
-    if (!productoData.stock) {
-      alert('Este producto no está disponible');
+    if (!validarStock(productoData)) {
+      toast.error('Este producto no está disponible');
       return;
     }
 
-    const productoConId = {
-      ...productoData,
-      id: productoData.id || Date.now().toString() 
-    };
-
+    const productoConId = crearProductoData(productoData);
     agregarAlCarrito(productoConId, 1);
-  
     navigate('/carrito');
   };
 
   const handleAgregarAlCarrito = () => {
-    if (!productoData.stock) {
-      alert('Este producto no está disponible');
+    if (!validarStock(productoData)) {
+      toast.error('Este producto no está disponible');
       return;
     }
 
-    const productoConId = {
-      ...productoData,
-      id: productoData.id || Date.now().toString()
-    };
-
+    const productoConId = crearProductoData(productoData);
     agregarAlCarrito(productoConId, 1);
-    
-    alert(`${productoData.marca} ${productoData.modelo} agregado al carrito`);
+    toast.success(`${productoData.marca} ${productoData.modelo} agregado al carrito`);
   };
 
   return (

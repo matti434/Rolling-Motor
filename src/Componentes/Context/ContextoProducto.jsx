@@ -19,6 +19,68 @@ export const useProductos = () => {
   return context;
 };
 
+/**
+ * Función de filtrado extraída para ser usada en el ViewModel
+ * El contexto la expone para que el ViewModel pueda usarla
+ */
+export const filtrarProductos = (productos, filtros) => {
+  return productos.filter((producto) => {
+    // Filtro por categoría
+    if (filtros.categoria && producto.categoria) {
+      if (producto.categoria.toLowerCase() !== filtros.categoria.toLowerCase()) {
+        return false;
+      }
+    }
+
+    // Filtro por término de búsqueda
+    if (filtros.terminoBusqueda) {
+      const termino = filtros.terminoBusqueda.toLowerCase();
+      const coincideNombre = producto.nombre?.toLowerCase().includes(termino);
+      const coincideMarca = producto.marca?.toLowerCase().includes(termino);
+      const coincideModelo = producto.modelo?.toLowerCase().includes(termino);
+      const coincideDescripcion = producto.descripcion?.toLowerCase().includes(termino);
+      if (!(coincideNombre || coincideMarca || coincideModelo || coincideDescripcion)) {
+        return false;
+      }
+    }
+
+    // Filtro por precio
+    const precioProducto = parseFloat(producto.precio) || 0;
+    if (filtros.precioMin && precioProducto < parseFloat(filtros.precioMin)) {
+      return false;
+    }
+    if (filtros.precioMax && precioProducto > parseFloat(filtros.precioMax)) {
+      return false;
+    }
+
+    // Filtro por marca
+    if (filtros.marca && producto.marca?.toLowerCase() !== filtros.marca.toLowerCase()) {
+      return false;
+    }
+
+    // Filtro por modelo
+    if (filtros.modelo && producto.modelo?.toLowerCase() !== filtros.modelo.toLowerCase()) {
+      return false;
+    }
+
+    // Filtro por destacado
+    if (filtros.destacado !== "") {
+      if ((producto.destacado?.toString() || "false") !== filtros.destacado) {
+        return false;
+      }
+    }
+
+    // Filtro por stock
+    if (filtros.stock !== "") {
+      if ((producto.stock?.toString() || "true") !== filtros.stock) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+};
+
 export const ProveedorProductos = ({ children }) => {
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -40,7 +102,6 @@ export const ProveedorProductos = ({ children }) => {
       setError(null);
 
       const productosData = productoService.obtenerTodos();
-      // Convertir Models a JSON para el estado
       const datos = productosData.map(p => p.toJSON ? p.toJSON() : p);
       setProductos(datos);
     } catch {
@@ -53,61 +114,6 @@ export const ProveedorProductos = ({ children }) => {
   useEffect(() => {
     cargarProductos();
   }, [cargarProductos]);
-
-  const productosFiltrados = productos.filter((producto) => {
-    if (filtros.categoria && producto.categoria) {
-      if (producto.categoria.toLowerCase() !== filtros.categoria.toLowerCase())
-        return false;
-    }
-
-    if (filtros.terminoBusqueda) {
-      const termino = filtros.terminoBusqueda.toLowerCase();
-      const coincideNombre = producto.nombre?.toLowerCase().includes(termino);
-      const coincideMarca = producto.marca?.toLowerCase().includes(termino);
-      const coincideModelo = producto.modelo?.toLowerCase().includes(termino);
-      const coincideDescripcion = producto.descripcion
-        ?.toLowerCase()
-        .includes(termino);
-      if (
-        !(
-          coincideNombre ||
-          coincideMarca ||
-          coincideModelo ||
-          coincideDescripcion
-        )
-      )
-        return false;
-    }
-
-    const precioProducto = parseFloat(producto.precio) || 0;
-    if (filtros.precioMin && precioProducto < parseFloat(filtros.precioMin))
-      return false;
-    if (filtros.precioMax && precioProducto > parseFloat(filtros.precioMax))
-      return false;
-
-    if (
-      filtros.marca &&
-      producto.marca?.toLowerCase() !== filtros.marca.toLowerCase()
-    )
-      return false;
-    if (
-      filtros.modelo &&
-      producto.modelo?.toLowerCase() !== filtros.modelo.toLowerCase()
-    )
-      return false;
-
-    if (filtros.destacado !== "") {
-      if ((producto.destacado?.toString() || "false") !== filtros.destacado)
-        return false;
-    }
-
-    if (filtros.stock !== "") {
-      if ((producto.stock?.toString() || "true") !== filtros.stock)
-        return false;
-    }
-
-    return true;
-  });
 
   const actualizarFiltros = useCallback((nuevosFiltros) => {
     setFiltros((prev) => ({ ...prev, ...nuevosFiltros }));
@@ -245,22 +251,21 @@ export const ProveedorProductos = ({ children }) => {
   }, []);
 
   const obtenerProductosDestacados = useCallback(() => {
-    const productos = productoService.obtenerDestacados();
-    return productos.map(p => p.toJSON ? p.toJSON() : p);
+    const productosDestacados = productoService.obtenerDestacados();
+    return productosDestacados.map(p => p.toJSON ? p.toJSON() : p);
   }, []);
 
   const obtenerProductosConStock = useCallback(() => {
-    const productos = productoService.obtenerConStock();
-    return productos.map(p => p.toJSON ? p.toJSON() : p);
+    const productosConStock = productoService.obtenerConStock();
+    return productosConStock.map(p => p.toJSON ? p.toJSON() : p);
   }, []);
 
   const obtenerProductosRecientes = useCallback((limite = 5) => {
-    const productos = productoService.obtenerRecientes(limite);
-    return productos.map(p => p.toJSON ? p.toJSON() : p);
+    const productosRecientes = productoService.obtenerRecientes(limite);
+    return productosRecientes.map(p => p.toJSON ? p.toJSON() : p);
   }, []);
 
   const actualizarStockProducto = useCallback((id, tieneStock) => {
-    // Usa productoService que tiene la lógica
     const respuesta = productoService.actualizarStock(id, tieneStock);
     if (respuesta.exito) {
       const productoJSON = respuesta.producto.toJSON ? respuesta.producto.toJSON() : respuesta.producto;
@@ -271,17 +276,24 @@ export const ProveedorProductos = ({ children }) => {
     return respuesta;
   }, []);
 
+  // Productos filtrados para compatibilidad con componentes existentes
+  // La lógica de filtrado también está disponible en useProductosViewModel
+  const productosFiltrados = filtrarProductos(productos, filtros);
+
   const valorContexto = {
+    // Datos crudos
     productos,
-    productosFiltrados,
+    productosFiltrados, // Para compatibilidad con componentes existentes
     cargando,
     error,
     filtros,
 
+    // Acciones de filtros
     actualizarFiltros,
     limpiarFiltros,
     filtrarPorCategoria,
 
+    // Funciones de consulta
     obtenerCategoriasUnicas,
     obtenerMarcasPorCategoria,
     obtenerProductosPorCategoria,
@@ -293,6 +305,7 @@ export const ProveedorProductos = ({ children }) => {
     obtenerProductosConStock,
     obtenerProductosRecientes,
 
+    // Acciones CRUD
     cargarProductos,
     agregarProducto,
     editarProducto,
