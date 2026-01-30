@@ -5,7 +5,6 @@ import React, {
   useEffect,
   useCallback,
 } from "react";
-import * as servicios from "../../Servicios/serviciosGenerales";
 import { productoService } from "../../Services/productoService";
 
 const ContextoProducto = createContext();
@@ -40,7 +39,9 @@ export const ProveedorProductos = ({ children }) => {
       setCargando(true);
       setError(null);
 
-      const datos = servicios.obtenerProductos();
+      const productosData = productoService.obtenerTodos();
+      // Convertir Models a JSON para el estado
+      const datos = productosData.map(p => p.toJSON ? p.toJSON() : p);
       setProductos(datos);
     } catch {
       setError("Error al cargar los productos desde LocalStorage");
@@ -211,25 +212,27 @@ export const ProveedorProductos = ({ children }) => {
   );
 
   const agregarProducto = useCallback((producto) => {
-    const respuesta = servicios.agregarProducto(producto);
+    const respuesta = productoService.crear(producto);
     if (respuesta.exito) {
-      setProductos((prev) => [...prev, respuesta.producto]);
+      const productoJSON = respuesta.producto.toJSON ? respuesta.producto.toJSON() : respuesta.producto;
+      setProductos((prev) => [...prev, productoJSON]);
     }
     return respuesta;
   }, []);
 
   const editarProducto = useCallback((id, datosActualizados) => {
-    const respuesta = servicios.editarProducto(id, datosActualizados);
+    const respuesta = productoService.actualizar(id, datosActualizados);
     if (respuesta.exito) {
+      const productoJSON = respuesta.producto.toJSON ? respuesta.producto.toJSON() : respuesta.producto;
       setProductos((prev) =>
-        prev.map((p) => (p.id === id ? respuesta.producto : p))
+        prev.map((p) => (p.id === id ? productoJSON : p))
       );
     }
     return respuesta;
   }, []);
 
   const eliminarProducto = useCallback((id) => {
-    const respuesta = servicios.eliminarProducto(id);
+    const respuesta = productoService.eliminar(id);
     if (respuesta.exito) {
       setProductos((prev) => prev.filter((p) => p.id !== id));
     }
@@ -237,19 +240,23 @@ export const ProveedorProductos = ({ children }) => {
   }, []);
 
   const obtenerProductoPorId = useCallback((id) => {
-    return servicios.obtenerProductoPorId(id);
+    const producto = productoService.obtenerPorId(id);
+    return producto ? (producto.toJSON ? producto.toJSON() : producto) : null;
   }, []);
 
   const obtenerProductosDestacados = useCallback(() => {
-    return servicios.obtenerProductosDestacados();
+    const productos = productoService.obtenerDestacados();
+    return productos.map(p => p.toJSON ? p.toJSON() : p);
   }, []);
 
   const obtenerProductosConStock = useCallback(() => {
-    return servicios.obtenerProductosConStock();
+    const productos = productoService.obtenerConStock();
+    return productos.map(p => p.toJSON ? p.toJSON() : p);
   }, []);
 
   const obtenerProductosRecientes = useCallback((limite = 5) => {
-    return servicios.obtenerProductosRecientes(limite);
+    const productos = productoService.obtenerRecientes(limite);
+    return productos.map(p => p.toJSON ? p.toJSON() : p);
   }, []);
 
   const actualizarStockProducto = useCallback((id, tieneStock) => {

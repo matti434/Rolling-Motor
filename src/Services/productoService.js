@@ -1,14 +1,14 @@
-import * as servicios from '../Servicios/serviciosGenerales';
+import * as persistence from './persistence/productoPersistence';
 import { Producto } from '../Models/Producto';
 
 export const productoService = {
   obtenerTodos: () => {
-    const datos = servicios.obtenerProductos();
+    const datos = persistence.obtenerTodos();
     return datos.map(d => Producto.fromJSON(d));
   },
 
   obtenerPorId: (id) => {
-    const dato = servicios.obtenerProductoPorId(id);
+    const dato = persistence.obtenerPorId(id);
     return dato ? Producto.fromJSON(dato) : null;
   },
 
@@ -23,7 +23,7 @@ export const productoService = {
       precio: datos.precio?.toString() || "0",
     };
 
-    const resultado = servicios.agregarProducto(nuevoProducto);
+    const resultado = persistence.agregar(nuevoProducto);
     if (resultado.exito) {
       return { exito: true, producto: Producto.fromJSON(resultado.producto) };
     }
@@ -38,7 +38,7 @@ export const productoService = {
       precio: datos.precio?.toString() || datos.precio,
     };
 
-    const resultado = servicios.editarProducto(id, datosActualizados);
+    const resultado = persistence.editar(id, datosActualizados);
     if (resultado.exito) {
       return { exito: true, producto: Producto.fromJSON(resultado.producto) };
     }
@@ -46,26 +46,25 @@ export const productoService = {
   },
 
   eliminar: (id) => {
-    return servicios.eliminarProducto(id);
+    return persistence.eliminar(id);
   },
 
   obtenerDestacados: () => {
-    const datos = servicios.obtenerProductosDestacados();
+    const datos = persistence.obtenerDestacados();
     return datos.map(d => Producto.fromJSON(d));
   },
 
   obtenerConStock: () => {
-    const datos = servicios.obtenerProductosConStock();
+    const datos = persistence.obtenerConStock();
     return datos.map(d => Producto.fromJSON(d));
   },
 
   obtenerRecientes: (limite = 5) => {
-    const datos = servicios.obtenerProductosRecientes(limite);
+    const datos = persistence.obtenerRecientes(limite);
     return datos.map(d => Producto.fromJSON(d));
   },
 
   actualizarStock: (id, tieneStock) => {
-    // Usar editarProducto directamente (actualizarStockProducto fue eliminado)
     const producto = productoService.obtenerPorId(id);
     if (!producto) {
       return { exito: false, mensaje: "Producto no encontrado" };
