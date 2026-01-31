@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ImagenProducto = ({ imagen, nombre, onError, onClick }) => {
   const [error, setError] = useState(false);
 
   if (!imagen) {
-    return <span className="sin-imagen">📷 Sin imagen</span>;
+    return <span className="sin-imagen">Sin imagen</span>;
   }
 
   const handleError = () => {
@@ -22,7 +22,7 @@ const ImagenProducto = ({ imagen, nombre, onError, onClick }) => {
   return (
     <div className="contenedor-imagen-tabla">
       {error ? (
-        <div className="imagen-error">❌ Error</div>
+        <div className="imagen-error">Error</div>
       ) : (
         <img
           src={imagen}
@@ -36,7 +36,7 @@ const ImagenProducto = ({ imagen, nombre, onError, onClick }) => {
   );
 };
 
-/*
+/**
   View pura para la sección de Productos
   Solo recibe props y renderiza UI
  */
@@ -51,12 +51,9 @@ export const AdminProductosView = ({
   return (
     <div className="contenedor-tabla">
       <div className="encabezado-productos">
-        <h2>📦 Gestión de Productos</h2>
-        <button
-          className="boton-agregar"
-          onClick={onAbrirFormulario}
-        >
-          ➕ Agregar Producto
+        <h2>Gestión de Productos</h2>
+        <button className="boton-agregar" onClick={onAbrirFormulario}>
+          Agregar Producto
         </button>
       </div>
 
@@ -102,19 +99,16 @@ export const AdminProductosView = ({
                   <div className="info-producto">
                     <strong className="nombre-producto">{p.nombre}</strong>
                     <div className="detalles-adicionales">
-                      {p.año && <span className="detalle">📅 {p.año}</span>}
+                      {p.año && <span className="detalle">{p.año}</span>}
                       {p.kilometros && (
-                        <span className="detalle">📏 {p.kilometros}</span>
+                        <span className="detalle">{p.kilometros}</span>
                       )}
                       {p.ubicacion && (
-                        <span className="detalle">📍 {p.ubicacion}</span>
+                        <span className="detalle">{p.ubicacion}</span>
                       )}
                     </div>
                     {p.descripcion && (
-                      <div
-                        className="descripcion-corta"
-                        title={p.descripcion}
-                      >
+                      <div className="descripcion-corta" title={p.descripcion}>
                         {p.descripcion.length > 60
                           ? `${p.descripcion.substring(0, 60)}...`
                           : p.descripcion}
@@ -143,17 +137,17 @@ export const AdminProductosView = ({
                         className="badge-destacado"
                         title="Producto destacado"
                       >
-                        ⭐ Destacado
+                        Destacado
                       </span>
                     )}
                     {!p.stock && (
                       <span className="badge-sin-stock" title="Sin stock">
-                        ⛔ Sin stock
+                        Sin stock
                       </span>
                     )}
                     {p.stock && !p.destacado && (
-                      <span className="badge-normal" title="Disponible">
-                        ✅ Disponible
+                      <span className="badge-destacado" title="Disponible">
+                        Disponible
                       </span>
                     )}
                   </div>
@@ -165,14 +159,14 @@ export const AdminProductosView = ({
                       onClick={() => onEditarProducto(p)}
                       title="Editar producto"
                     >
-                      ✏️ Editar
+                      ✏️
                     </button>
                     <button
                       className="boton-eliminar"
                       onClick={() => onEliminarProducto(p.id)}
                       title="Eliminar producto"
                     >
-                      🗑️ Eliminar
+                      🗑️
                     </button>
                   </div>
                 </td>
@@ -182,7 +176,7 @@ export const AdminProductosView = ({
         </table>
         {productos.length === 0 && (
           <div className="sin-datos">
-            📦 No hay productos registrados. ¡Agrega el primero!
+            No hay productos registrados. ¡Agrega el primero!
           </div>
         )}
       </div>

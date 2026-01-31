@@ -11,22 +11,31 @@ const Login = ({ onClose, onAbrirRegistro }) => {
       show={true}
       onHide={onClose}
       centered
-      size="lg"
-      backdrop="static"
+      backdrop={false}
       keyboard={false}
-      dialogClassName="modal-login-personalizado"
+      dialogClassName="modal-login-moderno"
     >
-      <Modal.Header closeButton className="encabezado-modal-personalizado">
-        <Modal.Title>Bienvenido de vuelta a Rolling Motors</Modal.Title>
-      </Modal.Header>
+      <div className="modal-overlay" onClick={onClose}></div>
+      <div className="modal-container">
+        <button className="btn-cerrar-moderno" onClick={onClose}>
+          ×
+        </button>
 
-      <Modal.Body className="cuerpo-modal-personalizado p-0">
-        <FormLogin
-          onSubmit={iniciarSesion}
-          onClose={onClose}
-          onAbrirRegistro={onAbrirRegistro}
-        />
-      </Modal.Body>
+        <div className="encabezado-login">
+          <h2 className="titulo-login">Tu camino continúa en Rolling Motors</h2>
+          <p className="subtitulo-login">
+            Ingresa tus credenciales para acceder a tu cuenta
+          </p>
+        </div>
+
+        <div className="cuerpo-login">
+          <FormLogin
+            onSubmit={iniciarSesion}
+            onClose={onClose}
+            onAbrirRegistro={onAbrirRegistro}
+          />
+        </div>
+      </div>
     </Modal>
   );
 };

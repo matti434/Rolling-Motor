@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import SplashScreen from "./Componentes/Shared/SplashScreen/SplashScreen";
 import Menu from "./Componentes/Shared/Menu/Menu";
 import Home from "./Componentes/Views/Home/Home";
 import Pagina404 from "./Componentes/Views/Pagina404/Pagina404";
 import Ofertas from "./Componentes/Views/Productos/Ofertas/Ofertas";
 import PaginaProductos from "./Componentes/Views/Productos/ComponenteProducto/PaginaProductos/PaginaProductos";
 import Contacto from "./Componentes/Views/Contacto/Contacto";
+import Nosotros from "./Componentes/Views/Nosotros/Nosotros";
 import AdminPanelContainer from "./Componentes/Admin/AdminPanelContainer";
 import RutaProtegida from "./Componentes/Utils/RutaProtegida";
 import Categorias from "./Componentes/Views/Productos/ComponenteProducto/Categorias/Categorias";
@@ -21,6 +24,11 @@ import { ProveedorProductos } from "./Componentes/Context/ContextoProducto";
 import { CarritoProvider } from "./Componentes/Context/ContextoCarrito";
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  if (showSplash) {
+    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+  }
 
   return (
     <CarritoProvider>
@@ -31,6 +39,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/contacto" element={<Contacto />} />
+              <Route path="/nosotros" element={<Nosotros />} />
               <Route path="/ofertas" element={<Ofertas />} />
               <Route path="/productos" element={<PaginaProductos />} />
               <Route path="/productos-todos" element={<div className="mt-5 py-5"><Categorias /></div>} />

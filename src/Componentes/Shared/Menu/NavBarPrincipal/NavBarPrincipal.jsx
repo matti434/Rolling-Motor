@@ -1,234 +1,165 @@
-import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {
-  FaGlobe,
-  FaShoppingCart,
-  FaUser,
-  FaBars,
-  FaEnvelope,
-  FaHeadset,
-  FaSignOutAlt,
-} from "react-icons/fa";
+import { FaGlobe, FaUser, FaUserPlus, FaShoppingCart } from "react-icons/fa";
 import { useUser } from "../../../Context/ContextoUsuario";
-import MenuUsuario from "./menuUsuario/MenuUsuario";
+import { useCarrito } from "../../../Context/ContextoCarrito";
 import { useTranslation } from "react-i18next";
-import "../../../../estilos/variables.css";
 import "./NavBarPrincipal.css";
 
 export const NavBarPrincipal = ({ onAbrirRegistro, onAbrirLogin }) => {
   const { usuarioActual, logout } = useUser();
+  const { itemsCarrito } = useCarrito();
   const { t, i18n } = useTranslation();
 
   const cambiarIdioma = (lng) => {
     i18n.changeLanguage(lng);
+    localStorage.setItem("language", lng);
   };
 
   const obtenerTextoIdiomaActual = () => {
-    return i18n.language === "es" ? "ES-EN" : "EN-ES";
+    return i18n.language === "es" ? "ES" : "EN";
   };
 
   const manejarCerrarSesion = () => {
     logout();
   };
 
-  const manejarPerfil = () => {
-    // Funcionalidad pendiente
-  };
-
-  const manejarContacto = () => {
-    // Funcionalidad pendiente
-  };
-
-  const manejarSoporte = () => {
-    // Funcionalidad pendiente
-  };
-
   return (
     <Navbar
       bg="dark"
       variant="dark"
-      expand="md"
+      expand="lg"
       fixed="top"
-      className="barra-navegacion-royal"
+      className="navbar-moderno"
     >
-      <Container>
-        <Navbar.Brand as={Link} to="/" className="marca-royal">
-          <img
-            src="Logo/logo_convertido.png"
-            alt="Rolling Motors"
-            height="40"
-          />
+      <Container fluid="xl" className="px-3 px-lg-4">
+        {/* Logo/Marca */}
+        <Navbar.Brand as={Link} to="/" className="logo-brand">
+          <span className="logo-text">
+            <span className="logo-primary">Rolling</span>
+            <span className="logo-secondary">Motor</span>
+          </span>
         </Navbar.Brand>
 
-        <Navbar.Collapse className="d-none d-md-flex">
-          <Nav className="ms-auto align-items-center gap-3">
-            <Dropdown align="end">
-              <Dropdown.Toggle
-                variant="dark"
-                className="enlace-navegacion d-flex align-items-center border-0"
+        {/* Botón hamburguesa para móvil */}
+        <div className="mobile-menu">
+          <div className="mobile-language">
+            <button
+              className={`mobile-lang-btn ${i18n.language === "es" ? "active" : ""}`}
+              onClick={() => cambiarIdioma("es")}
+            >
+              ES
+            </button>
+            <button
+              className={`mobile-lang-btn ${i18n.language === "en" ? "active" : ""}`}
+              onClick={() => cambiarIdioma("en")}
+            >
+              EN
+            </button>
+          </div>
+
+          <Navbar.Toggle aria-controls="navbar-nav">
+            <span className="hamburger"></span>
+            <span className="hamburger"></span>
+            <span className="hamburger"></span>
+          </Navbar.Toggle>
+        </div>
+
+        {/* Menú colapsable */}
+        <Navbar.Collapse id="navbar-nav" className="justify-content-end">
+          <Nav className="align-items-center gap-3 gap-xl-4">
+            {/* Botón Carrito para Desktop */}
+            {usuarioActual && (
+              <Link
+                to="/carrito"
+                className="carrito-btn-icon d-none d-lg-flex"
+                title="Carrito"
               >
-                <FaGlobe className="me-1" /> {obtenerTextoIdiomaActual()}
-              </Dropdown.Toggle>
+                <FaShoppingCart size={20} />
+                {itemsCarrito.length > 0 && (
+                  <span className="carrito-badge-icon">
+                    {itemsCarrito.length}
+                  </span>
+                )}
+              </Link>
+            )}
 
-              <Dropdown.Menu>
-                <Dropdown.Item
-                  onClick={() => cambiarIdioma("es")}
-                  className={i18n.language === "es" ? "active" : ""}
-                >
-                  🇪🇸 Español
-                </Dropdown.Item>
-                <Dropdown.Item
-                  onClick={() => cambiarIdioma("en")}
-                  className={i18n.language === "en" ? "active" : ""}
-                >
-                  🇺🇸 English
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+            {/* Selector de idioma para desktop */}
+            <div className="language-selector">
+              <button
+                className={`lang-btn ${i18n.language === "es" ? "active" : ""}`}
+                onClick={() => cambiarIdioma("es")}
+                title="Español"
+              >
+                ES
+              </button>
+              <div className="lang-divider"></div>
+              <button
+                className={`lang-btn ${i18n.language === "en" ? "active" : ""}`}
+                onClick={() => cambiarIdioma("en")}
+                title="English"
+              >
+                EN
+              </button>
+              <FaGlobe className="lang-icon" />
+            </div>
 
+            {/* Botones de usuario */}
             {usuarioActual ? (
-              <MenuUsuario />
-            ) : (
-              <>
-                <Nav.Link
-                  onClick={onAbrirLogin}
-                  className="enlace-navegacion d-flex align-items-center puntero-mano"
-                >
-                  <FaUser className="me-1" /> {t("login")}
-                </Nav.Link>
-                <button
-                  onClick={onAbrirRegistro}
-                  className="boton-registro rounded-pill px-3"
-                >
-                  {t("register")}
+              <div className="user-actions">
+                <button className="user-btn" onClick={manejarCerrarSesion}>
+                  <FaUser className="me-2" />
+                  <span className="d-none d-md-inline">{t("logout")}</span>
                 </button>
-              </>
+              </div>
+            ) : (
+              <div className="auth-buttons">
+                <button className="login-btn" onClick={onAbrirLogin}>
+                  <FaUser className="me-2" />
+                  <span>{t("login")}</span>
+                </button>
+                <button className="register-btn" onClick={onAbrirRegistro}>
+                  <FaUserPlus className="me-2" />
+                  <span>{t("register")}</span>
+                </button>
+              </div>
+            )}
+
+            {/* Botones móviles (solo aparecen en móvil) */}
+            {usuarioActual ? (
+              <div className="user-actions mobile d-lg-none">
+                <Link
+                  to="/carrito"
+                  className="carrito-btn-mobile"
+                  title="Carrito"
+                >
+                  <FaShoppingCart size={20} />
+                  {itemsCarrito.length > 0 && (
+                    <span className="carrito-badge-mobile">
+                      {itemsCarrito.length}
+                    </span>
+                  )}
+                </Link>
+
+                <button className="user-btn" onClick={manejarCerrarSesion}>
+                  <FaUser className="me-2" />
+                  <span>{t("logout")}</span>
+                </button>
+              </div>
+            ) : (
+              <div className="auth-buttons mobile d-lg-none">
+                <button className="login-btn" onClick={onAbrirLogin}>
+                  <FaUser className="me-2" />
+                  <span>{t("login")}</span>
+                </button>
+                <button className="register-btn" onClick={onAbrirRegistro}>
+                  <FaUserPlus className="me-2" />
+                  <span>{t("register")}</span>
+                </button>
+              </div>
             )}
           </Nav>
         </Navbar.Collapse>
-
-        <div className="d-flex d-md-none align-items-center gap-2">
-          <Nav.Link className="carrito-movil text-white">
-            <FaShoppingCart size={18} />
-          </Nav.Link>
-
-          <Dropdown align="end">
-            <Dropdown.Toggle variant="dark" className="boton-desplegable-movil">
-              <FaBars size={18} />
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu className="menu-desplegable-movil">
-              {usuarioActual ? (
-                <>
-                  <Dropdown.Item
-                    className="item-desplegable"
-                    onClick={manejarPerfil}
-                  >
-                    <FaUser className="me-2" /> {usuarioActual.nombreDeUsuario}
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    className="item-desplegable"
-                    onClick={manejarPerfil}
-                  >
-                    <FaUser className="me-2" /> {t("profile")}
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    className="item-desplegable"
-                    onClick={manejarContacto}
-                  >
-                    <FaEnvelope className="me-2" /> {t("contact")}
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    className="item-desplegable"
-                    onClick={manejarSoporte}
-                  >
-                    <FaHeadset className="me-2" /> {t("support")}
-                  </Dropdown.Item>
-
-                  {/* Selector de idioma - Móvil */}
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="item-desplegable dropdown-submenu">
-                    <FaGlobe className="me-2" /> {t("changeLanguage")}
-                    <div className="mt-2">
-                      <button
-                        onClick={() => cambiarIdioma("es")}
-                        className={`btn btn-sm me-1 ${
-                          i18n.language === "es"
-                            ? "btn-primary"
-                            : "btn-outline-primary"
-                        }`}
-                      >
-                        ES
-                      </button>
-                      <button
-                        onClick={() => cambiarIdioma("en")}
-                        className={`btn btn-sm ${
-                          i18n.language === "en"
-                            ? "btn-primary"
-                            : "btn-outline-primary"
-                        }`}
-                      >
-                        EN
-                      </button>
-                    </div>
-                  </Dropdown.Item>
-
-                  <Dropdown.Divider className="separador-desplegable" />
-                  <Dropdown.Item
-                    className="item-desplegable text-danger"
-                    onClick={manejarCerrarSesion}
-                  >
-                    <FaSignOutAlt className="me-2" /> {t("logout")}
-                  </Dropdown.Item>
-                </>
-              ) : (
-                <>
-                  <Dropdown.Item
-                    className="item-desplegable"
-                    onClick={onAbrirLogin}
-                  >
-                    <FaUser className="me-2" /> {t("login")}
-                  </Dropdown.Item>
-                  <Dropdown.Item className="item-desplegable dropdown-submenu">
-                    <FaGlobe className="me-2" /> {t("changeLanguage")}
-                    <div className="mt-2">
-                      <button
-                        onClick={() => cambiarIdioma("es")}
-                        className={`btn btn-sm me-1 ${
-                          i18n.language === "es"
-                            ? "btn-primary"
-                            : "btn-outline-primary"
-                        }`}
-                      >
-                        ES
-                      </button>
-                      <button
-                        onClick={() => cambiarIdioma("en")}
-                        className={`btn btn-sm ${
-                          i18n.language === "en"
-                            ? "btn-primary"
-                            : "btn-outline-primary"
-                        }`}
-                      >
-                        EN
-                      </button>
-                    </div>
-                  </Dropdown.Item>
-
-                  <Dropdown.Divider className="separador-desplegable" />
-                  <Dropdown.Item className="text-center">
-                    <button
-                      onClick={onAbrirRegistro}
-                      className="boton-registro rounded-pill w-100"
-                    >
-                      {t("register")}
-                    </button>
-                  </Dropdown.Item>
-                </>
-              )}
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
       </Container>
     </Navbar>
   );

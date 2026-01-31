@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
  * View pura para la sección de Usuarios Activos
@@ -14,8 +14,8 @@ export const AdminUsuariosView = ({
 }) => {
   return (
     <div className="contenedor-tabla">
-      <h2>👥 Usuarios Activos</h2>
-      
+      <h2>Usuarios Activos</h2>
+
       {/* Tarjetas de resumen */}
       <div className="tabla-resumen">
         <div className="tarjeta-resumen">
@@ -50,9 +50,7 @@ export const AdminUsuariosView = ({
               <tr key={u.id}>
                 <td data-label="Usuario">
                   <div className="info-usuario">
-                    <span className="nombre-usuario">
-                      {u.nombreDeUsuario}
-                    </span>
+                    <span className="nombre-usuario">{u.nombreDeUsuario}</span>
                   </div>
                 </td>
                 <td data-label="Email">{u.email}</td>
@@ -62,10 +60,10 @@ export const AdminUsuariosView = ({
                       u.role === "admin" ? "badge-admin" : "badge-user"
                     }`}
                   >
-                    {u.role === "admin" ? "👑 Admin" : "👤 Usuario"}
+                    {u.role === "admin" ? "Admin" : "Usuario"}
                   </span>
                 </td>
-                <td data-label="País">{u.pais || "No especificado"}</td>
+                <td data-label="País">{u.pais || "—"}</td>
                 <td data-label="Fecha Nac">
                   {new Date(u.fechaNacimiento).toLocaleDateString()}
                 </td>
@@ -76,7 +74,7 @@ export const AdminUsuariosView = ({
                       onClick={() => onEditarUsuario(u)}
                       title="Editar usuario"
                     >
-                      ✏️ Editar
+                      ✏️
                     </button>
                     {u.role !== "admin" && (
                       <button
@@ -84,7 +82,7 @@ export const AdminUsuariosView = ({
                         onClick={() => onSuspenderUsuario(u.id)}
                         title="Suspender usuario"
                       >
-                        ⚠️ Suspender
+                        ⚠️
                       </button>
                     )}
                   </div>
@@ -94,9 +92,7 @@ export const AdminUsuariosView = ({
           </tbody>
         </table>
         {usuarios.length === 0 && (
-          <div className="sin-datos">
-            📭 No hay usuarios activos en el sistema
-          </div>
+          <div className="sin-datos">No hay usuarios activos en el sistema</div>
         )}
       </div>
     </div>

@@ -12,23 +12,29 @@ export const Registro = ({ onClose, onAbrirLogin }) => {
       onHide={onClose}
       centered
       size="lg"
-      backdrop="static"
+      backdrop={false}
       keyboard={false}
-      dialogClassName="modal-registro-personalizado"
+      dialogClassName="modal-registro-moderno"
     >
-      <Modal.Header closeButton className="encabezado-modal-personalizado">
-        <Modal.Title className="ms-auto">
-          ¿Qué esperas para ser amante de Rolling Motors?
-        </Modal.Title>
-      </Modal.Header>
+      <div className="modal-overlay" onClick={onClose}></div>
+      <div className="modal-container">
+        <button className="btn-cerrar-moderno" onClick={onClose}>
+          ×
+        </button>
+        
+        <div className="encabezado-registro">
+          <h2 className="titulo-registro">¿Qué esperas para ser amante de Rolling Motors?</h2>
+          <p className="subtitulo-registro">Completa todos los campos para crear tu cuenta</p>
+        </div>
 
-      <Modal.Body className="cuerpo-modal-personalizado p-0">
-        <FormRegistro 
-          onSubmit={registrarUsuario} 
-          onClose={onClose} 
-          onAbrirLogin={onAbrirLogin}
-        />
-      </Modal.Body>
+        <div className="cuerpo-registro">
+          <FormRegistro 
+            onSubmit={registrarUsuario} 
+            onClose={onClose} 
+            onAbrirLogin={onAbrirLogin}
+          />
+        </div>
+      </div>
     </Modal>
   );
 };

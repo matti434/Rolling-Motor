@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
   View pura para la sección de Recomendaciones/Notas
@@ -16,8 +16,7 @@ export const AdminRecomendacionesView = ({
 }) => {
   return (
     <div className="contenedor-tabla">
-      <h2>💬 Recomendaciones de Usuarios</h2>
-      <h2>Notas</h2>
+      <h2>Notas y Recomendaciones</h2>
 
       <form
         className="form-comentario"
@@ -34,7 +33,7 @@ export const AdminRecomendacionesView = ({
         />
 
         <button className="boton-agregar" type="submit">
-          {modoEdicion ? "💾 Guardar Nota" : "➕ Añadir Nota"}
+          {modoEdicion ? "Guardar Nota" : "Añadir Nota"}
         </button>
 
         {modoEdicion && (
@@ -43,7 +42,7 @@ export const AdminRecomendacionesView = ({
             type="button"
             onClick={onCancelarEdicionRecomendacion}
           >
-            ❌ Cancelar
+            Cancelar
           </button>
         )}
       </form>
@@ -63,19 +62,21 @@ export const AdminRecomendacionesView = ({
                 <td data-label="Comentario">{r.texto}</td>
 
                 <td data-label="Acciones">
-                  <button
-                    className="boton-editar"
-                    onClick={() => onEditarRecomendacion(r)}
-                  >
-                    ✏️ Editar
-                  </button>
+                  <div className="acciones">
+                    <button
+                      className="boton-editar"
+                      onClick={() => onEditarRecomendacion(r)}
+                    >
+                      ✏️
+                    </button>
 
-                  <button
-                    className="boton-eliminar"
-                    onClick={() => onEliminarRecomendacion(r.id)}
-                  >
-                    🗑️ Eliminar
-                  </button>
+                    <button
+                      className="boton-eliminar"
+                      onClick={() => onEliminarRecomendacion(r.id)}
+                    >
+                      🗑️
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -83,7 +84,7 @@ export const AdminRecomendacionesView = ({
         </table>
 
         {recomendaciones.length === 0 && (
-          <div className="sin-datos">📭 No hay notas aún</div>
+          <div className="sin-datos">No hay notas creadas aún</div>
         )}
       </div>
     </div>

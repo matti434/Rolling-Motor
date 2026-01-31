@@ -6,8 +6,10 @@ import "./estilos/variables.css";
 import App from "./App.jsx";
 import "./RoyaLToast.css";
 import { inicializarLocalStorage } from "./Componentes/Utils/inicializarLocalStorage.js";
+import { initializeAdminUser } from "./db.js";
 
 inicializarLocalStorage();
+initializeAdminUser();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -37,5 +39,5 @@ createRoot(document.getElementById("root")).render(
       }}
     />
     <App />
-  </StrictMode>
+  </StrictMode>,
 );

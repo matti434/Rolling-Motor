@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
   View pura para la sección de Pedidos
@@ -15,8 +15,8 @@ export const AdminPedidosView = ({
 }) => {
   return (
     <div className="contenedor-tabla">
-      <h2>📦 Gestión de Pedidos del Administrador</h2>
-      
+      <h2>Gestión de Pedidos</h2>
+
       <form
         className="form-comentario"
         onSubmit={(e) => {
@@ -46,12 +46,10 @@ export const AdminPedidosView = ({
         />
 
         <button className="boton-agregar" type="submit">
-          {modoPedido === "agregar"
-            ? "➕ Crear pedido"
-            : "✏️ Guardar cambios"}
+          {modoPedido === "agregar" ? "Crear pedido" : "Guardar cambios"}
         </button>
       </form>
-      
+
       <div className="tabla-responsive">
         <table className="tabla-administracion">
           <thead>
@@ -68,18 +66,20 @@ export const AdminPedidosView = ({
                 <td data-label="Titulo">{p.titulo}</td>
                 <td data-label="Descripción">{p.descripcion}</td>
                 <td data-label="Acciones">
-                  <button
-                    className="boton-editar"
-                    onClick={() => onEditarPedido(p)}
-                  >
-                    ✏️ Editar
-                  </button>
-                  <button
-                    className="boton-eliminar"
-                    onClick={() => onEliminarPedido(p.id)}
-                  >
-                    🗑️ Eliminar
-                  </button>
+                  <div className="acciones">
+                    <button
+                      className="boton-editar"
+                      onClick={() => onEditarPedido(p)}
+                    >
+                      ✏️
+                    </button>
+                    <button
+                      className="boton-eliminar"
+                      onClick={() => onEliminarPedido(p.id)}
+                    >
+                      🗑️
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

@@ -397,10 +397,10 @@ const Contacto = () => {
                                 Escaneá el QR para contactarnos por WhatsApp
                             </p>
                             <p className="mb-0" style={{ color: "#ccc" }}>
-                                📩 <strong style={{ color: "#fff" }}>Email:</strong> Ianierogiovanna@gmail.com
+                                📩 <strong style={{ color: "#fff" }}>Email:</strong> RollingMotor@gmail.com
                             </p>
                             <p className="mt-2" style={{ color: "#ccc" }}>
-                                📞 <strong style={{ color: "#fff" }}>Teléfono:</strong> +54 9 381 319-9018
+                                📞 <strong style={{ color: "#fff" }}>Teléfono:</strong> +54 9 381 3905024
                             </p>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
   View pura para la sección de Usuarios Suspendidos
@@ -20,8 +20,8 @@ export const AdminSuspendidosView = ({
 
   return (
     <div className="contenedor-tabla">
-      <h2>⚠️ Usuarios Suspendidos</h2>
-      
+      <h2>Usuarios Suspendidos</h2>
+
       <div className="tabla-resumen">
         <div className="tarjeta-resumen">
           <span className="numero-resumen">{totalSuspendidos}</span>
@@ -66,9 +66,7 @@ export const AdminSuspendidosView = ({
                   <td data-label="Días Suspendido">
                     <span
                       className={`badge-dias ${
-                        diffDias > 30
-                          ? "badge-peligro"
-                          : "badge-advertencia"
+                        diffDias > 30 ? "badge-peligro" : "badge-advertencia"
                       }`}
                     >
                       {diffDias} días
@@ -81,14 +79,14 @@ export const AdminSuspendidosView = ({
                         onClick={() => onReactivarUsuario(u.id)}
                         title="Reactivar usuario"
                       >
-                        ✅ Reactivar
+                        ✅
                       </button>
                       <button
                         className="boton-eliminar"
                         onClick={() => onEliminarUsuarioSuspendido(u.id)}
                         title="Eliminar permanentemente"
                       >
-                        🗑️ Eliminar
+                        🗑️
                       </button>
                     </div>
                   </td>
@@ -98,7 +96,7 @@ export const AdminSuspendidosView = ({
           </tbody>
         </table>
         {usuariosSuspendidos.length === 0 && (
-          <div className="sin-datos">✅ No hay usuarios suspendidos</div>
+          <div className="sin-datos">No hay usuarios suspendidos</div>
         )}
       </div>
     </div>

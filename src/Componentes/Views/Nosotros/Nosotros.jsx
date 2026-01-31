@@ -4,40 +4,32 @@ import "./Nosotros.css";
 const integrantes = [
   {
     id: 1,
-    nombre: "Integrante 1",
-    rol: "Frontend Developer",
+    nombre: "Tomas Gomez",
+    rol: "FullStack Developer",
     descripcion:
-      "Encargado del diseño visual, maquetación y experiencia de usuario.",
+      "Doy vida visual al proyecto, pero mi visión abarca todo el flujo del usuario. Cada elemento que diseño responde a una necesidad del negocio.",
     foto: "/imagenes/integrante1.jpg",
-    github: "https://github.com/usuario1",
+    github: "https://github.com/tomasgomez18",
   },
   {
     id: 2,
-    nombre: "Integrante 2",
-    rol: "Backend Developer",
+    nombre: "Matias Lazarte",
+    rol: "FullStack Developer",
     descripcion:
-      "Responsable de la estructura del servidor, base de datos y lógica interna.",
+      "Construyo la infraestructura técnica sólida que soporta cada función, siempre pensando en cómo cada línea de código mejora la experiencia global.",
     foto: "/imagenes/integrante2.jpg",
-    github: "https://github.com/usuario2",
+    github: "https://github.com/matti434",
   },
   {
     id: 3,
-    nombre: "Integrante 3",
+    nombre: "Juan Pablo Vergara",
     rol: "Fullstack Developer",
     descripcion:
-      "Aporta en todas las áreas del proyecto, trabajando tanto en frontend como backend.",
+      "Conecto cada pieza del proyecto, asegurando que diseño, tecnología y estrategia trabajen en armonía hacia un objetivo común.",
     foto: "/imagenes/integrante3.jpg",
-    github: "https://github.com/usuario3",
+    github: "https://github.com/juampa926",
   },
-  {
-    id: 4,
-    nombre: "Integrante 4",
-    rol: "QA / Tester",
-    descripcion:
-      "Se encarga de pruebas, control de calidad y asegurar el funcionamiento óptimo.",
-    foto: "/imagenes/integrante4.jpg",
-    github: "https://github.com/usuario4",
-  },
+
 ];
 
  const Nosotros = () => {

@@ -32,8 +32,7 @@ const Galeria = () => {
   const indexNext = (index + 1) % imagenes.length;
 
   return (
-    <div className="galeria-container mt-5 py-5">
-      <h2 className="galeria-titulo">TANTO EN LA GUERRA COMO EN LA CALLE</h2>
+    <div className="galeria-container">
 
       <div className="galeria-wrapper">
         <div className="galeria-lateral izquierda">
