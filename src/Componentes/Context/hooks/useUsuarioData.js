@@ -1,9 +1,9 @@
 import { useCallback } from "react";
-import * as servicios from "../../../Servicios/serviciosGenerales";
+import { usuarioService } from "../../../Services";
 
 export const useUsuarioDataActions = () => {
-  const obtenerUsuarioPorId = useCallback((id) => servicios.obtenerUsuarioPorId(id), []);
-  const buscarUsuarios = useCallback((termino) => servicios.buscarUsuarios(termino), []);
+  const obtenerUsuarioPorId = useCallback((id) => usuarioService.obtenerPorId(id), []);
+  const buscarUsuarios = useCallback((termino) => usuarioService.buscar(termino), []);
 
   return { obtenerUsuarioPorId, buscarUsuarios };
 };

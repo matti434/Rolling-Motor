@@ -1,14 +1,14 @@
-import * as servicios from '../Servicios/serviciosGenerales';
-import { Usuario } from '../Models/Usuario';
+import * as persistence from './persistence/usuarioPersistence';
+import { Usuario } from '../Models';
 
 export const usuarioService = {
   obtenerTodos: () => {
-    const datos = servicios.obtenerUsuarios();
+    const datos = persistence.obtenerTodos();
     return datos.map(d => Usuario.fromJSON(d));
   },
 
   obtenerPorId: (id) => {
-    const dato = servicios.obtenerUsuarioPorId(id);
+    const dato = persistence.obtenerPorId(id);
     return dato ? Usuario.fromJSON(dato) : null;
   },
 
@@ -29,7 +29,7 @@ export const usuarioService = {
       id: crypto.randomUUID(),
     };
 
-    const resultado = servicios.agregarUsuario(nuevoUsuario);
+    const resultado = persistence.agregar(nuevoUsuario);
     if (resultado.exito) {
       return { exito: true, usuario: Usuario.fromJSON(resultado.usuario) };
     }
@@ -37,7 +37,7 @@ export const usuarioService = {
   },
 
   actualizar: (id, datos) => {
-    const resultado = servicios.editarUsuario(id, datos);
+    const resultado = persistence.editar(id, datos);
     if (resultado.exito) {
       return { exito: true, usuario: Usuario.fromJSON(resultado.usuario) };
     }
@@ -45,15 +45,27 @@ export const usuarioService = {
   },
 
   eliminar: (id) => {
-    return servicios.eliminarUsuario(id);
+    return persistence.eliminar(id);
   },
 
   login: (credencial, contrasena) => {
-    const resultado = servicios.loginUsuario(credencial, contrasena);
-    if (resultado.exito) {
-      return { exito: true, usuario: Usuario.fromJSON(resultado.usuario) };
+    const usuarios = persistence.obtenerTodos();
+
+    const usuario = usuarios.find(u => {
+      if (!u.email || !u.nombreDeUsuario) return false;
+
+      const emailMatch = u.email.toLowerCase() === (credencial || "").toLowerCase();
+      const nombreMatch = u.nombreDeUsuario.toLowerCase() === (credencial || "").toLowerCase();
+      const passMatch = u.contrasena === contrasena;
+
+      return (emailMatch || nombreMatch) && passMatch;
+    });
+
+    if (!usuario) {
+      return { exito: false, mensaje: "Credenciales incorrectas" };
     }
-    return resultado;
+
+    return { exito: true, usuario: Usuario.fromJSON(usuario) };
   },
 
   registrar: (datos) => {
@@ -62,17 +74,17 @@ export const usuarioService = {
   },
 
   buscar: (termino) => {
-    const datos = servicios.buscarUsuarios(termino);
+    const datos = persistence.buscar(termino);
     return datos.map(d => Usuario.fromJSON(d));
   },
 
   obtenerSuspendidos: () => {
-    const datos = servicios.obtenerUsuariosSuspendidos();
+    const datos = persistence.obtenerSuspendidos();
     return datos.map(d => Usuario.fromJSON(d));
   },
 
   suspender: (id, fechaSuspension) => {
-    const resultado = servicios.suspenderUsuario(id, fechaSuspension);
+    const resultado = persistence.moverASuspendidos(id, fechaSuspension);
     if (resultado.exito) {
       return { exito: true, usuario: Usuario.fromJSON(resultado.usuario) };
     }
@@ -80,7 +92,7 @@ export const usuarioService = {
   },
 
   reactivar: (id) => {
-    const resultado = servicios.reactivarUsuario(id);
+    const resultado = persistence.reactivar(id);
     if (resultado.exito) {
       return { exito: true, usuario: Usuario.fromJSON(resultado.usuario) };
     }
@@ -88,6 +100,6 @@ export const usuarioService = {
   },
 
   eliminarSuspendido: (id) => {
-    return servicios.eliminarUsuarioSuspendido(id);
+    return persistence.eliminarSuspendido(id);
   }
 };

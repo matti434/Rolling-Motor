@@ -1,7 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCarrito } from '../Componentes/Context/ContextoCarrito';
-import { CarritoItem } from '../Models/CarritoItem';
+import { CarritoItem } from '../Models';
 
 export const useCarritoViewModel = () => {
   const navigate = useNavigate();

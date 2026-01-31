@@ -1,11 +1,16 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useCarrito } from '../../../../../Context/ContextoCarrito';
+
+import { crearProductoData, validarStock, PRODUCTO_DEFAULT } from '../../../../../Utils/productoUtils';
+import toast from 'react-hot-toast';
+import '../../../../../../estilos/variables.css';
 import './DetalleProducto.css';
 
 const DetalleProducto = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { agregarAlCarrito } = useCarrito();
+
 
   const productoData = location.state?.producto || {
     id: null,
@@ -21,34 +26,37 @@ const DetalleProducto = () => {
     stock: true
   };
 
+  // Usar producto de navegación o valores por defecto
+  const productoData = location.state?.producto || PRODUCTO_DEFAULT;
+
+
   const handleComprarAhora = () => {
-    if (!productoData.stock) {
-      alert('Este producto no está disponible');
+    if (!validarStock(productoData)) {
+      toast.error('Este producto no está disponible');
       return;
     }
+
 
     const productoConId = {
       ...productoData,
       id: productoData.id || Date.now().toString()
     };
 
+    const productoConId = crearProductoData(productoData)
     agregarAlCarrito(productoConId, 1);
     navigate('/carrito');
   };
 
   const handleAgregarAlCarrito = () => {
-    if (!productoData.stock) {
-      alert('Este producto no está disponible');
+    if (!validarStock(productoData)) {
+      toast.error('Este producto no está disponible');
       return;
     }
 
-    const productoConId = {
-      ...productoData,
-      id: productoData.id || Date.now().toString()
-    };
-
+    const productoConId = crearProductoData(productoData);
     agregarAlCarrito(productoConId, 1);
-    alert(`${productoData.marca} ${productoData.modelo} agregado al carrito`);
+
+    toast.success(`${productoData.marca} ${productoData.modelo} agregado al carrito`);
   };
 
   return (

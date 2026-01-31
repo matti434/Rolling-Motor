@@ -11,7 +11,7 @@ import {
   FaCrown 
 } from "react-icons/fa";
 import toast from "react-hot-toast";
-import * as servicios from "../../../../../../Servicios/serviciosGenerales";
+import { usuarioService } from "../../../../../../Services";
 import "../../../../../../estilos/variables.css";
 import "./ModalPerfil.css";
 
@@ -54,7 +54,7 @@ const ModalPerfil = ({ mostrar, onCerrar }) => {
 
     setCargando(true);
     try {
-      const respuesta = servicios.editarUsuario(usuarioActual.id, {
+      const respuesta = usuarioService.actualizar(usuarioActual.id, {
         nombreDeUsuario: formData.nombreDeUsuario
       });
 
@@ -63,7 +63,8 @@ const ModalPerfil = ({ mostrar, onCerrar }) => {
         setEditando(false);
 
         // Actualizamos localStorage
-        localStorage.setItem("ultimoUsuario", JSON.stringify(respuesta.usuario));
+        const usuarioJSON = respuesta.usuario.toJSON ? respuesta.usuario.toJSON() : respuesta.usuario;
+        localStorage.setItem("ultimoUsuario", JSON.stringify(usuarioJSON));
 
         // Actualizamos reload opcional para reflejar cambios
         setTimeout(() => {
@@ -92,7 +93,7 @@ const ModalPerfil = ({ mostrar, onCerrar }) => {
 
     setCargando(true);
     try {
-      const respuesta = servicios.eliminarUsuario(usuarioActual.id);
+      const respuesta = usuarioService.eliminar(usuarioActual.id);
 
       if (respuesta.exito) {
         localStorage.removeItem("ultimoUsuario");

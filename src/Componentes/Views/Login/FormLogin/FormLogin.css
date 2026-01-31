@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+/**
+ * Estilos específicos del formulario de Login
+ * Los estilos base están en: src/estilos/forms.css
+ */
+
 
 .contenedor-formulario {
   font-family: "Montserrat", sans-serif;
@@ -272,3 +276,6 @@ h4.texto-dorado::after {
     -webkit-backdrop-filter: blur(10px);
   }
 }
+@import '../../../../estilos/forms.css';
+
+

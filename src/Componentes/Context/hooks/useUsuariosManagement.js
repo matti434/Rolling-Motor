@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import toast from "react-hot-toast";
-import * as servicios from "../../../Servicios/serviciosGenerales";
+import { usuarioService } from "../../../Services";
 
 export const useUsuariosManagement = (
   usuarios,
@@ -15,10 +15,11 @@ export const useUsuariosManagement = (
     if (!usuario) return toast.error("Usuario no encontrado");
     if (usuario.role === "admin") return toast.error("El administrador no puede ser suspendido");
 
-    const respuesta = servicios.suspenderUsuario(id);
+    const respuesta = usuarioService.suspender(id);
     if (respuesta.exito) {
+      const usuarioJSON = respuesta.usuario.toJSON ? respuesta.usuario.toJSON() : respuesta.usuario;
       setUsuarios(prev => prev.filter(u => u.id !== id));
-      setUsuariosSuspendidos(prev => [...prev, respuesta.usuario]);
+      setUsuariosSuspendidos(prev => [...prev, usuarioJSON]);
       toast.success(`Usuario ${usuario.nombreDeUsuario} suspendido`);
     } else {
       toast.error("Error al suspender usuario");
@@ -29,10 +30,11 @@ export const useUsuariosManagement = (
     const usuario = usuariosSuspendidos.find(u => u.id === id);
     if (!usuario) return toast.error("Usuario no encontrado");
 
-    const respuesta = servicios.reactivarUsuario(id);
+    const respuesta = usuarioService.reactivar(id);
     if (respuesta.exito) {
+      const usuarioJSON = respuesta.usuario.toJSON ? respuesta.usuario.toJSON() : respuesta.usuario;
       setUsuariosSuspendidos(prev => prev.filter(u => u.id !== id));
-      setUsuarios(prev => [...prev, respuesta.usuario]);
+      setUsuarios(prev => [...prev, usuarioJSON]);
       toast.success(`Usuario ${usuario.nombreDeUsuario} reactivado`);
     } else {
       toast.error("Error al reactivar usuario");
@@ -48,7 +50,7 @@ export const useUsuariosManagement = (
     const confirmar = window.confirm(`¿Eliminar permanentemente a "${usuario.nombreDeUsuario}"? Esta acción no se puede deshacer.`);
     if (!confirmar) return toast.info("Eliminación cancelada");
 
-    const respuesta = servicios.eliminarUsuarioSuspendido(id);
+    const respuesta = usuarioService.eliminarSuspendido(id);
     if (respuesta.exito) {
       setUsuariosSuspendidos(prev => prev.filter(u => u.id !== id));
       toast.success(`Usuario ${usuario.nombreDeUsuario} eliminado permanentemente`);
@@ -58,12 +60,13 @@ export const useUsuariosManagement = (
   }, [usuariosSuspendidos, setUsuariosSuspendidos]);
 
   const editarUsuario = useCallback((id, nuevosDatos) => {
-    const respuesta = servicios.editarUsuario(id, nuevosDatos);
+    const respuesta = usuarioService.actualizar(id, nuevosDatos);
     if (respuesta.exito) {
-      setUsuarios(prev => prev.map(u => u.id === id ? respuesta.usuario : u));
+      const usuarioJSON = respuesta.usuario.toJSON ? respuesta.usuario.toJSON() : respuesta.usuario;
+      setUsuarios(prev => prev.map(u => u.id === id ? usuarioJSON : u));
       if (usuarioActual && usuarioActual.id === id) {
-        setUsuarioActual(respuesta.usuario);
-        localStorage.setItem("ultimoUsuario", JSON.stringify(respuesta.usuario));
+        setUsuarioActual(usuarioJSON);
+        localStorage.setItem("ultimoUsuario", JSON.stringify(usuarioJSON));
       }
       toast.success("Usuario actualizado");
     } else {

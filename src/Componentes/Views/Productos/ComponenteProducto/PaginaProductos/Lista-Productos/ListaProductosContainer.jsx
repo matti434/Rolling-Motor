@@ -1,4 +1,4 @@
-import { useProductosViewModel } from '../../../../../../ViewModels/useProductosViewModel';
+import { useProductosViewModel } from '../../../../../../ViewModels';
 import ListaProductosView from './ListaProductosView';
 
 const ListaProductosContainer = () => {

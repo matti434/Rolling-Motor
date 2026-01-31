@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import toast from "react-hot-toast";
-import * as servicios from "../../Servicios/serviciosGenerales";
+import { usuarioService } from "../../Services";
 import { useAuthActions } from "./hooks/useAuth";
 import { useUsuariosManagement } from "./hooks/useUsuariosManagement";
 import { useUsuarioDataActions } from "./hooks/useUsuarioData";
@@ -19,8 +19,12 @@ export const UserProvider = ({ children }) => {
     try {
       setCargando(true);
 
-      const dataUsuarios = servicios.obtenerUsuarios();
-      const dataSuspendidos = servicios.obtenerUsuariosSuspendidos();
+      const usuariosData = usuarioService.obtenerTodos();
+      const suspendidosData = usuarioService.obtenerSuspendidos();
+
+      // Convertir Models a JSON para el estado
+      const dataUsuarios = usuariosData.map(u => u.toJSON ? u.toJSON() : u);
+      const dataSuspendidos = suspendidosData.map(u => u.toJSON ? u.toJSON() : u);
 
       setUsuarios(dataUsuarios);
       setUsuariosSuspendidos(dataSuspendidos);
