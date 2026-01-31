@@ -77,15 +77,15 @@
   letter-spacing: 1.5px !important;
   border-radius: 8px !important;
   transition: all 0.3s ease !important;
-  font-size: 1.1rem !important;
+  font-size: 0.9rem !important;
   border: 1px solid transparent !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 1.1rem 2rem !important;
-  min-height: 60px !important;
+  padding: 0.95rem 1.8rem !important;
+  min-height: 50px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  line-height: 1.5 !important;
+  line-height: 1.4 !important;
   width: 100% !important;
 }
 
@@ -176,29 +176,30 @@ input[type="date"].entrada-personalizada {
 }
 
 @media (max-width: 768px) {
-  .contenedor-.5rem !important;
-  border-radius: 10px;
-}
+  .contenedor-formulario {
+    padding: 1.5rem !important;
+    border-radius: 10px;
+  }
 
-.entrada-personalizada {
-  padding: 0.7rem 1rem !important;
-  font-size: 0.95rem !important;
-}
+  .entrada-personalizada {
+    padding: 0.7rem 1rem !important;
+    font-size: 0.95rem !important;
+  }
 
-.boton-personalizado {
-  padding: 0.95rem 1.6rem !important;
-  font-size: 1rem !important;
-  min-height: 56px !important;
-}
+  .boton-personalizado {
+    padding: 0.95rem 1.6rem !important;
+    font-size: 1rem !important;
+    min-height: 56px !important;
+  }
 
-.form-label {
-  font-size: 0.9rem;
-  margin-bottom: 0.6rem;
-}
+  .form-label {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
 
-h4.texto-dorado {
-  font-size: 1.3rem;
-}
+  h4.texto-dorado {
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -213,9 +214,9 @@ h4.texto-dorado {
   }
 
   .boton-personalizado {
-    padding: 0.9rem 1.3rem !important;
-    font-size: 0.95rem !important;
-    min-height: 52px !important;
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.85rem !important;
+    min-height: 48px !important;
   }
 
   .form-label {

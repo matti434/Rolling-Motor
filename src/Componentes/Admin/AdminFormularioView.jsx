@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
  * View pura para el formulario de producto
@@ -20,7 +20,7 @@ export const AdminFormularioView = ({
   return (
     <div className="superposicion-formulario">
       <div className="contenedor-formulario">
-        <h3>{esEdicion ? "Editar Producto" : "Agregar Producto"}</h3>
+        <h3>{esEdicion ? "Editar Producto" : "Agregar Nuevo Producto"}</h3>
         <form onSubmit={onGuardar}>
           <div className="campo-formulario">
             <label htmlFor="nombre">Nombre del producto *</label>
@@ -86,7 +86,7 @@ export const AdminFormularioView = ({
               <div className="vista-previa-imagen">
                 {errorImagen ? (
                   <div className="fallback-imagen">
-                    ❌ Error al cargar la imagen
+                    Error al cargar la imagen
                   </div>
                 ) : (
                   <img
@@ -106,7 +106,7 @@ export const AdminFormularioView = ({
               <input
                 id="marca"
                 type="text"
-                placeholder="Ejm: Yamaha, Honda, Kawasaki"
+                placeholder="Ejm: Yamaha, Honda"
                 value={datosFormulario.marca}
                 onChange={(e) => onCambioCampo("marca", e.target.value)}
                 required
@@ -119,7 +119,7 @@ export const AdminFormularioView = ({
               <input
                 id="modelo"
                 type="text"
-                placeholder="Ejm: MT-07, CBR 600RR, Ninja 400"
+                placeholder="Ejm: MT-07, CBR 600RR"
                 value={datosFormulario.modelo}
                 onChange={(e) => onCambioCampo("modelo", e.target.value)}
                 required
@@ -170,7 +170,7 @@ export const AdminFormularioView = ({
             <label htmlFor="descripcion">Descripción *</label>
             <textarea
               id="descripcion"
-              placeholder="Descripción detallada del producto, características, especificaciones técnicas..."
+              placeholder="Descripción detallada del producto..."
               value={datosFormulario.descripcion}
               onChange={(e) => onCambioCampo("descripcion", e.target.value)}
               required
@@ -208,16 +208,12 @@ export const AdminFormularioView = ({
           </div>
 
           <div className="botones-formulario">
-            <button
-              type="submit"
-              className="boton-guardar"
-              disabled={enviando}
-            >
+            <button type="submit" className="boton-guardar" disabled={enviando}>
               {enviando
-                ? "⏳ Procesando..."
+                ? "Procesando..."
                 : esEdicion
-                ? "💾 Guardar Cambios"
-                : "➕ Agregar Producto"}
+                  ? "Guardar Cambios"
+                  : "Agregar Producto"}
             </button>
             <button
               type="button"
@@ -225,7 +221,7 @@ export const AdminFormularioView = ({
               className="boton-cancelar"
               disabled={enviando}
             >
-              ❌ Cancelar
+              Cancelar
             </button>
           </div>
         </form>

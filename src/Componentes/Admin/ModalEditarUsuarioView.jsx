@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-/*
+/**
   View pura para el modal de editar usuario
   Solo recibe props y renderiza UI
  */
-export const ModalEditarUsuarioView = ({
-  usuario,
-  onGuardar,
-  onCancelar,
-}) => {
+export const ModalEditarUsuarioView = ({ usuario, onGuardar, onCancelar }) => {
   const [datosFormulario, setDatosFormulario] = useState({
     nombreDeUsuario: usuario?.nombreDeUsuario || "",
     email: usuario?.email || "",
@@ -103,14 +99,14 @@ export const ModalEditarUsuarioView = ({
 
           <div className="botones-formulario">
             <button type="submit" className="boton-guardar">
-              💾 Guardar Cambios
+              Guardar Cambios
             </button>
             <button
               type="button"
               onClick={onCancelar}
               className="boton-cancelar"
             >
-              ❌ Cancelar
+              Cancelar
             </button>
           </div>
         </form>

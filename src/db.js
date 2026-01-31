@@ -13,8 +13,7 @@ export const initializeAdminUser = () => {
     id: "admin-001",
     nombreDeUsuario: "admin123",
     email: "admin@rollingmotor.com",
-    pais: "Argentina",
-    fechaNacimiento: "1985-06-15",
+    pais: "Bolivia",    fechaNacimiento: "1985-06-15",
     contrasena: "Admin123!@",
     role: "admin",
   };

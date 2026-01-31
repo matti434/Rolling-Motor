@@ -123,17 +123,17 @@
 /* ================= ENCABEZADO ================= */
 
 .encabezado-registro {
-  padding: 2rem 2.2rem 1rem;
+  padding: 1.6rem 1.8rem 0.8rem;
   text-align: center;
   background: var(--color-fondo-secundario);
   flex-shrink: 0;
 }
 
 .titulo-registro {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: var(--color-texto-oscuro);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   background: linear-gradient(45deg, var(--color-texto-oscuro), var(--color-dorado));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -142,7 +142,7 @@
 }
 
 .subtitulo-registro {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: var(--color-texto-secundario);
   margin: 0;
   line-height: 1.4;
@@ -151,7 +151,7 @@
 /* ================= CUERPO ================= */
 
 .cuerpo-registro {
-  padding: 1.2rem 2.2rem 2rem;
+  padding: 1rem 1.8rem 1.6rem;
   background: var(--color-fondo-secundario);
   flex: 1;
   overflow-y: auto;
@@ -181,19 +181,19 @@
   }
 
   .encabezado-registro {
-    padding: 1.5rem 1.8rem 0.8rem;
+    padding: 1.3rem 1.5rem 0.7rem;
   }
 
   .titulo-registro {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .subtitulo-registro {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .cuerpo-registro {
-    padding: 0.8rem 1.8rem 1.5rem;
+    padding: 0.9rem 1.5rem 1.3rem;
   }
 }
 
@@ -205,18 +205,18 @@
   }
 
   .encabezado-registro {
-    padding: 1.3rem 1.2rem 0.7rem;
+    padding: 1.1rem 1rem 0.6rem;
   }
 
   .titulo-registro {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .subtitulo-registro {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 
   .cuerpo-registro {
-    padding: 0.9rem 1.2rem 1.3rem;
+    padding: 0.8rem 1rem 1.1rem;
   }
 }
