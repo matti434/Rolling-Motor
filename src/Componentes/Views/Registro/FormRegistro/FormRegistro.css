@@ -1,3 +1,9 @@
+@import '../../../../estilos/forms.css';
+
+/**
+ * Estilos específicos del formulario de Registro
+ * Los estilos base están en: src/estilos/forms.css
+ */
 
 .contenedor-formulario {
   font-family: "Montserrat", sans-serif;
@@ -255,11 +261,3 @@ input[type="date"].entrada-personalizada {
     -webkit-backdrop-filter: blur(10px);
   }
 }
-
-/**
- * Estilos específicos del formulario de Registro
- * Los estilos base están en: src/estilos/forms.css
- */
-
-@import '../../../../estilos/forms.css';
-

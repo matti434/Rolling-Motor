@@ -1,4 +1,4 @@
 export { productoService } from "./productoService";
-export { usuarioService} from "./usuarioService";
-export { productoPersistence } from "./persistence/productoPersistence";
-export { usuarioPersistence } from "./persistence/usuarioPersistence";
+export { usuarioService } from "./usuarioService";
+export * as productoPersistence from "./persistence/productoPersistence";
+export * as usuarioPersistence from "./persistence/usuarioPersistence";

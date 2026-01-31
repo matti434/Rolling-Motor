@@ -1,8 +1,9 @@
+@import '../../../../estilos/forms.css';
+
 /**
  * Estilos específicos del formulario de Login
  * Los estilos base están en: src/estilos/forms.css
  */
-
 
 .contenedor-formulario {
   font-family: "Montserrat", sans-serif;
@@ -276,6 +277,4 @@ h4.texto-dorado::after {
     -webkit-backdrop-filter: blur(10px);
   }
 }
-@import '../../../../estilos/forms.css';
-
 

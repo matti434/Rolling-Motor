@@ -11,24 +11,8 @@ const DetalleProducto = () => {
   const navigate = useNavigate();
   const { agregarAlCarrito } = useCarrito();
 
-
-  const productoData = location.state?.producto || {
-    id: null,
-    marca: "Royal Enfield",
-    modelo: "Classic 350",
-    año: 2020,
-    precio: "450.000",
-    imagen: "https://images.pexels.com/photos/5192876/pexels-photo-5192876.jpeg",
-    kilometros: "12.000",
-    ubicacion: "Buenos Aires, AR",
-    descripcion: "Moto en excelente estado, mantenimiento al día. Perfecta para ciudad y rutas cortas.",
-    destacado: false,
-    stock: true
-  };
-
   // Usar producto de navegación o valores por defecto
   const productoData = location.state?.producto || PRODUCTO_DEFAULT;
-
 
   const handleComprarAhora = () => {
     if (!validarStock(productoData)) {
@@ -36,13 +20,7 @@ const DetalleProducto = () => {
       return;
     }
 
-
-    const productoConId = {
-      ...productoData,
-      id: productoData.id || Date.now().toString()
-    };
-
-    const productoConId = crearProductoData(productoData)
+    const productoConId = crearProductoData(productoData);
     agregarAlCarrito(productoConId, 1);
     navigate('/carrito');
   };
